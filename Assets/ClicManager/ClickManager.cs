@@ -19,7 +19,7 @@ public class ClickManager : MonoBehaviour
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
 
-            RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
+            RaycastHit2D[] hit = Physics2D.RaycastAll(mousePos2D, Vector2.zero);
             DoesItHits(hit);
             
 
@@ -27,12 +27,27 @@ public class ClickManager : MonoBehaviour
        
     }
 
-    void DoesItHits(RaycastHit2D hit)
+    void DoesItHits(RaycastHit2D [] hits)
     {
-        if (hit.collider != null)
+        foreach (var hit in hits)
+        {
+            if (hit.collider != null)
+            {
+                Debug.Log("Something was clicked!");
+                Debug.Log(hit.collider.gameObject.name);
+
+                
+                //hit.collider.gameObject.GetComponent<OnClic>(OnClic).;
+            }
+            else
+            {
+                Debug.Log("Mouse Clicked");
+            }
+        }
+        /*if (hit.collider != null)
         {
             Debug.Log("Something was clicked!");
-            Debug.Log(hit.collider.gameObject.name);
+            Debug.Log(hit..gameObject.name);
 
             //hit.collider.attachedRigidbody.AddForce(Vector2.up);
             //hit.collider.gameObject.GetComponent<OnClic>(OnClic).;
@@ -40,7 +55,7 @@ public class ClickManager : MonoBehaviour
         else
         {
             Debug.Log("Mouse Clicked");
-        }
+        }*/
     }
 }
 
