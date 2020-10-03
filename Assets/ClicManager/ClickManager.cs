@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ClickManager : MonoBehaviour
@@ -33,15 +34,15 @@ public class ClickManager : MonoBehaviour
         {
             if (hit.collider != null)
             {
-                Debug.Log("Something was clicked!");
-                Debug.Log(hit.collider.gameObject.name);
+                //Debug.Log("Something was clicked!");
+                //Debug.Log(hit.collider.gameObject.name);
 
-                
+                WhatToDoOnClic(hits);
                 //hit.collider.gameObject.GetComponent<OnClic>(OnClic).;
             }
             else
             {
-                Debug.Log("Mouse Clicked");
+                //Debug.Log("Mouse Clicked");
             }
         }
         /*if (hit.collider != null)
@@ -57,7 +58,45 @@ public class ClickManager : MonoBehaviour
             Debug.Log("Mouse Clicked");
         }*/
     }
+
+    void WhatToDoOnClic(RaycastHit2D[] hits)
+    {
+        List<string> gameObjectsNames = LookForNameObject(hits);
+        if (gameObjectsNames.Contains("Nature")|| gameObjectsNames.Contains("Road"))
+        {
+            Debug.Log("Clic on Road or Nature");
+        }
+        else if (gameObjectsNames.Contains("Turrets"))
+        {
+            Debug.Log("Clic on a Turret");
+        }
+        else
+        {
+            Debug.Log("Clic on Floor");
+        }
+        
+        
+        /*
+            PlaceTurret();
+            SelectTurretOnMap();
+            SelectTurretInShoop();
+       */
+
+    }
+    List<string> LookForNameObject(RaycastHit2D[] hits)
+    {
+        List<string> gameObjectsNames = new List<string>();
+        foreach (var hit in hits)
+        {
+            gameObjectsNames.Add(hit.collider.gameObject.name);
+        }
+        return gameObjectsNames;
+    }
+
 }
+
+
+
 
 
 //Solution à Alex pour le clic. Il 
