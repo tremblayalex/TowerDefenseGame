@@ -65,22 +65,19 @@ public class ClickManager : MonoBehaviour
         if (gameObjectsNames.Contains("Nature")|| gameObjectsNames.Contains("Road"))
         {
             Debug.Log("Clic on Road or Nature");
+            //NothingToDo();
         }
         else if (gameObjectsNames.Contains("Turrets"))
         {
             Debug.Log("Clic on a Turret");
+            //SelectTurretOnMap();
         }
         else
         {
             Debug.Log("Clic on Floor");
+            //PlaceTurret();
         }
-        
-        
-        /*
-            PlaceTurret();
-            SelectTurretOnMap();
-            SelectTurretInShoop();
-       */
+
 
     }
     List<string> LookForNameObject(RaycastHit2D[] hits)
