@@ -11,6 +11,11 @@ public class Spawner : MonoBehaviour
 
     void Start()
     {
+        CreateNewTestEnemy();
+    }
+
+    private void CreateNewTestEnemy()
+    {
         enemy = Instantiate(enemyPrefab, gameObject.transform.position, gameObject.transform.rotation);
         enemy.GetComponent<Enemy>().HitPoints = enemyScriptableObjects[0].hitPoints;
         enemy.GetComponent<Enemy>().MovementSpeed = enemyScriptableObjects[0].movementSpeed;
