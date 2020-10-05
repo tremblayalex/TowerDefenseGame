@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -7,23 +8,32 @@ public class Spawner : MonoBehaviour
     public EnemyScriptableObject[] enemyScriptableObjects;
     public GameObject enemyPrefab;
 
-    private GameObject enemy;
+    public float spawnDelay = 1f;
+
+    private float delayBeforeNextSpawn = 0f;
 
     void Start()
     {
-        CreateNewTestEnemy();
-    }
-
-    private void CreateNewTestEnemy()
-    {
-        enemy = Instantiate(enemyPrefab, gameObject.transform.position, gameObject.transform.rotation);
-        enemy.GetComponent<Enemy>().HitPoints = enemyScriptableObjects[0].hitPoints;
-        enemy.GetComponent<Enemy>().MovementSpeed = enemyScriptableObjects[0].movementSpeed;
-        enemy.GetComponent<SpriteRenderer>().sprite = enemyScriptableObjects[0].enemySprite;
+        
     }
 
     void Update()
     {
-        
+        if (delayBeforeNextSpawn <= 0)
+        {
+            SpawnNewEnemy();
+
+            delayBeforeNextSpawn = spawnDelay;
+        }
+
+        delayBeforeNextSpawn -= Time.deltaTime;
+    }
+
+    private void SpawnNewEnemy()
+    {
+        GameObject newEnemy = Instantiate(enemyPrefab, gameObject.transform.position, gameObject.transform.rotation);
+        newEnemy.GetComponent<Enemy>().setHitPoints(enemyScriptableObjects[0].hitPoints);
+        newEnemy.GetComponent<Enemy>().setMovementSpeed(enemyScriptableObjects[0].movementSpeed);
+        newEnemy.GetComponent<SpriteRenderer>().sprite = enemyScriptableObjects[0].enemySprite;
     }
 }

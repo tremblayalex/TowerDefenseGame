@@ -154,6 +154,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a3964e7c2c400bd408891daeb66fab2d, type: 2}
   enemyPrefab: {fileID: 8949875820659252465, guid: 58ba9522a105c104e8285306f08db1fb,
     type: 3}
+  spawnDelay: 2
 --- !u!4 &234351341
 Transform:
   m_ObjectHideFlags: 0
@@ -3826,6 +3827,36 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1338115059
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1338115060}
+  m_Layer: 0
+  m_Name: PathEnd
+  m_TagString: PathEnd
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1338115060
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338115059}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.5, y: 7.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1473464694
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,55 +10,108 @@ public class Enemy : MonoBehaviour
 
     private GridLayout grid;
     private Tilemap tilemap;
+    private Vector3 pathEndPosition;
 
-    public int HitPoints
+    private Vector3 targetPosition;  
+
+    public void setHitPoints(int inHitPoints)
     {
-        get { return hitPoints; }
-        set { hitPoints = HitPoints; }
+        hitPoints = inHitPoints;
     }
 
-    public float MovementSpeed
+    public int getHitPoints()
     {
-        get { return movementSpeed; }
-        set { movementSpeed = MovementSpeed; }
+        return hitPoints;
+    }
+
+    public float getMovementSpeed()
+    {
+        return movementSpeed;
+    }
+
+    public void setMovementSpeed(float inMovementSpeed)
+    {
+        movementSpeed = inMovementSpeed;
     }
 
     void Start()
     {
         grid = GameObject.FindWithTag("Road").GetComponentInParent<GridLayout>();
         tilemap = GameObject.FindWithTag("Road").GetComponent<Tilemap>();
+        pathEndPosition = GameObject.FindWithTag("PathEnd").transform.position;
 
-        //transform.eulerAngles = new Vector3(0, 0, 180);
-        //transform.position = new Vector3(0, 0, 0);
+        targetPosition = transform.position;
     }
 
     void Update()
     {
-        float speed = 10f;
-
-        float gas = Input.GetAxis("Vertical");
-        float rotate = -Input.GetAxis("Horizontal");
-
-        transform.Rotate(transform.forward, rotate * 200 * Time.deltaTime);
-        transform.position += gameObject.transform.up * gas * speed * Time.deltaTime;
-
-        //CheckRoadTile();
-        IsPathForward();
+        if (transform.position == pathEndPosition)
+        {
+            Destroy(gameObject);
+        }
+        else if (transform.position == targetPosition)
+        {
+            CalculateNewTarget();
+        }
+        else
+        {
+            MoveTowardsTarget();
+        }
     }
 
-    private void IsPathForward()
+    private void CalculateNewTarget()
     {
-        Vector3Int cellPosition = grid.WorldToCell(transform.position + transform.up);
+        Vector3 forwardPosition = transform.position + transform.up;
+        Vector3 leftPosition = transform.position - transform.right;
+        Vector3 rightPosition = transform.position + transform.right;
 
-        print(transform.eulerAngles.z);
-        print("Cell forward: " + (tilemap.GetTile(cellPosition) != null));
-        print(cellPosition.x + " " + cellPosition.y + " " + cellPosition.z);
+        Vector3Int forwardCellPosition = grid.WorldToCell(forwardPosition);
+        Vector3Int leftCellPosition = grid.WorldToCell(leftPosition);
+        Vector3Int rightCellPosition = grid.WorldToCell(rightPosition);
+
+        if (tilemap.GetTile(forwardCellPosition) != null)
+        {
+            targetPosition = forwardPosition;
+        }
+        else if (tilemap.GetTile(leftCellPosition) != null)
+        {
+            targetPosition = leftPosition;
+            RotateToLeft();
+        }
+        else if (tilemap.GetTile(rightCellPosition) != null)
+        {
+            targetPosition = rightPosition;
+            RotateToRight();
+        }
+        else
+        {
+            print("[Error] No longer able to find next path!");
+        }
     }
 
-    private void CheckRoadTile()
+    private void RotateToLeft()
     {
-        Vector3Int cellPosition = grid.WorldToCell(transform.position);
-        print("Road: " + (tilemap.GetTile(cellPosition) != null));
-        print(cellPosition.x + " " + cellPosition.y + " " + cellPosition.z);
+        float currentRotation = transform.eulerAngles.z;
+
+        SetRotation(currentRotation + 90);
+    }
+
+    private void RotateToRight()
+    {
+        float currentRotation = transform.eulerAngles.z;
+
+        SetRotation(currentRotation - 90);
+    }
+
+    private void SetRotation(float angle)
+    {
+        transform.eulerAngles = new Vector3(0, 0, angle);
+    }
+
+    private void MoveTowardsTarget()
+    {
+        float maxMovementDistance = movementSpeed * Time.deltaTime;
+
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, maxMovementDistance);
     }
 }
