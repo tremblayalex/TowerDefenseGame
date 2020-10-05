@@ -1,43 +1,62 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using UnityEngine;
 
 public class ClickManager : MonoBehaviour
 {
 
+    string[] ModeDeClicPossible = { "Normal", "Achat" };
+    string ModeDeClic;
+    public GameObject Tourrelle0;
+    Ray myRay;
+    RaycastHit2D[] hits;
+
+
     // Start is called before the first frame update
     void Start()
     {
-
+        ModeDeClic = "Normal";
     }
 
     // Update is called once per frame
     void Update()
+    {
+        FindWhereWeClicked();
+        PressedEscapeButton();
+    }
+
+    void PressedEscapeButton()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ModeDeClic = "Normal";
+        }
+    }
+
+    void FindWhereWeClicked()
     {
         if (Input.GetAxis("Fire1") != 0)
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
 
-            RaycastHit2D[] hit = Physics2D.RaycastAll(mousePos2D, Vector2.zero);
-            DoesItHits(hit);
-            
-
+            hits = Physics2D.RaycastAll(mousePos2D, Vector2.zero);
+            DoesItHits();
         }
-       
     }
 
-    void DoesItHits(RaycastHit2D [] hits)
+    void DoesItHits()
     {
         foreach (var hit in hits)
         {
             if (hit.collider != null)
             {
                 //Debug.Log("Something was clicked!");
-                //Debug.Log(hit.collider.gameObject.name);
-
-                WhatToDoOnClic(hits);
+                //
+                Debug.Log(hit.collider.gameObject.name);
+                WhatToDoOnClic();
                 //hit.collider.gameObject.GetComponent<OnClic>(OnClic).;
             }
             else
@@ -45,21 +64,10 @@ public class ClickManager : MonoBehaviour
                 //Debug.Log("Mouse Clicked");
             }
         }
-        /*if (hit.collider != null)
-        {
-            Debug.Log("Something was clicked!");
-            Debug.Log(hit..gameObject.name);
-
-            //hit.collider.attachedRigidbody.AddForce(Vector2.up);
-            //hit.collider.gameObject.GetComponent<OnClic>(OnClic).;
-        }
-        else
-        {
-            Debug.Log("Mouse Clicked");
-        }*/
+        
     }
 
-    void WhatToDoOnClic(RaycastHit2D[] hits)
+    void WhatToDoOnClic()
     {
         List<string> gameObjectsNames = LookForNameObject(hits);
         if (gameObjectsNames.Contains("Nature")|| gameObjectsNames.Contains("Road"))
@@ -67,19 +75,33 @@ public class ClickManager : MonoBehaviour
             Debug.Log("Clic on Road or Nature");
             //NothingToDo();
         }
-        else if (gameObjectsNames.Contains("Turrets"))
+        else if (gameObjectsNames.Contains("TurretsOnFloor"))
         {
             Debug.Log("Clic on a Turret");
             //SelectTurretOnMap();
         }
+        else if (gameObjectsNames.Contains("TurretsInMenu"))
+        {
+            Debug.Log("Clic on a turret in the menu");
+            ModeDeClic = ModeDeClicPossible[1];
+        }
         else
         {
             Debug.Log("Clic on Floor");
-            //PlaceTurret();
+            PlaceTurret(hits);
         }
 
 
     }
+
+    void PlaceTurret(RaycastHit2D[] hits)
+    {
+        if (ModeDeClic == ModeDeClicPossible[1])
+        {
+            Instantiate(Tourrelle0, hits[0].point, Quaternion.identity);
+        }
+    }
+
     List<string> LookForNameObject(RaycastHit2D[] hits)
     {
         List<string> gameObjectsNames = new List<string>();
