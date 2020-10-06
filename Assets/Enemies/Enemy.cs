@@ -12,7 +12,9 @@ public class Enemy : MonoBehaviour
     private Tilemap tilemap;
     private Vector3 pathEndPosition;
 
-    private Vector3 targetPosition;  
+    private Vector3 targetPosition;
+
+    public int hpEnnemi;
 
     public void setHitPoints(int inHitPoints)
     {
@@ -47,7 +49,7 @@ public class Enemy : MonoBehaviour
     {
         if (transform.position == pathEndPosition)
         {
-            Destroy(gameObject);
+            EnnemyEndThePath();
         }
         else if (transform.position == targetPosition)
         {
@@ -57,6 +59,14 @@ public class Enemy : MonoBehaviour
         {
             MoveTowardsTarget();
         }
+        
+    }
+
+    void EnnemyEndThePath()
+    {
+        Destroy(gameObject);
+        GameObject deathMessage = GameObject.FindGameObjectWithTag("Death_message");
+        deathMessage.GetComponent<HP_Manager>().LoseHP();
     }
 
     private void CalculateNewTarget()
@@ -87,6 +97,22 @@ public class Enemy : MonoBehaviour
         {
             print("[Error] No longer able to find next path!");
         }
+    }
+
+    public void LoseHP(int dammage)
+    {
+        
+        hpEnnemi -= dammage;
+
+        if (hpEnnemi < 0)
+        {
+            EnnemiDeath();
+        }
+    }
+
+    public void EnnemiDeath()
+    {
+        Destroy(gameObject);
     }
 
     private void RotateToLeft()
