@@ -1,0 +1,2 @@
+- Add Tag "Enemy" to the Enemy Prefab
+- Edit the Tower.cs script

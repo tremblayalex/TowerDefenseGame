@@ -7,6 +7,7 @@ TagManager:
   - Road
   - PathEnd
   - Death_message
+  - Enemy
   layers:
   - Default
   - TransparentFX
