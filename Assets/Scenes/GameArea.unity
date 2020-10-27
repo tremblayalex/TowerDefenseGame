@@ -356,7 +356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18de03ccb36d2f2459b0cc90da14fcd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Money: 10
+  money: 10
 --- !u!1 &94271118
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,9 +618,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyScriptableObjects:
   - {fileID: 11400000, guid: a3964e7c2c400bd408891daeb66fab2d, type: 2}
+  - {fileID: 11400000, guid: 00031b6b26ecf6e40b1c1178d516aa4b, type: 2}
+  - {fileID: 11400000, guid: 7f142d223af6c954db96b7059b63f8d1, type: 2}
+  - {fileID: 11400000, guid: 19e3bd9e86a7fc5438fd7b8f963c3e2e, type: 2}
   enemyPrefab: {fileID: 8949875820659252465, guid: 58ba9522a105c104e8285306f08db1fb,
     type: 3}
-  spawnDelay: 2
+  waveDuration: 2
+  delayBetweenWaves: 1
+  firstWaveEnemyCount: 10
+  waveEnemyIncrementMultiplier: 1.2
 --- !u!4 &234351341
 Transform:
   m_ObjectHideFlags: 0
