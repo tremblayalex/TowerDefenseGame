@@ -624,9 +624,9 @@ MonoBehaviour:
   enemyPrefab: {fileID: 8949875820659252465, guid: 58ba9522a105c104e8285306f08db1fb,
     type: 3}
   waveDuration: 2
-  delayBetweenWaves: 1
-  firstWaveEnemyCount: 10
-  waveEnemyIncrementMultiplier: 1.2
+  delayBetweenWaves: 10
+  firstWaveEnemyCount: 3
+  waveEnemyIncrementMultiplier: 2
 --- !u!4 &234351341
 Transform:
   m_ObjectHideFlags: 0
