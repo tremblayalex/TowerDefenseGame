@@ -7,6 +7,10 @@ TagManager:
   - Road
   - PathEnd
   - Death_message
+  - WorldGrid
+  - Floor
+  - Nature
+  - Money
   layers:
   - Default
   - TransparentFX
@@ -17,7 +21,7 @@ TagManager:
   - 
   - 
   - Death_message
-  - 
+  - Tower
   - 
   - 
   - 
