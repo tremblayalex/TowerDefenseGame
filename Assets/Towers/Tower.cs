@@ -44,11 +44,6 @@ public class Tower : MonoBehaviour
         InitializeTowerRange();     
     }
 
-    void Start()
-    {
-        DisplayFireRange();
-    }
-
     private void InitializeTowerRange()
     {
         towerRangeGameObject = Instantiate(towerRangePrefab, transform.position, Quaternion.identity);
@@ -83,6 +78,11 @@ public class Tower : MonoBehaviour
                 delayTemp = 0.5f; //--------------------------------------<<<
             }          
         }
+    }
+
+    void OnDestroy()
+    {
+        Destroy(towerRangeGameObject);
     }
 
     private GameObject FindTargetEnemy()

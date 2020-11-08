@@ -9,12 +9,7 @@ public class SpawnerTower : MonoBehaviour
 
     void Start()
     {
-        SpawnNewTower(0, 0);
-    }
-
-    void Update()
-    {
-        
+        //SpawnNewTower(0, 0);
     }
 
     public void SpawnNewTower(float x, float y)
@@ -22,7 +17,7 @@ public class SpawnerTower : MonoBehaviour
         SpawnNewTower(new Vector3(x, y, 0));
     }
 
-    public void SpawnNewTower(Vector3 position)
+    public void SpawnNewTower(Vector3 position)//opacity ,  numeros
     {
         GameObject newTower = Instantiate(towerPrefab, position, Quaternion.identity);
         newTower.GetComponent<Tower>().setDamage(towerScriptableObjects[0].damage);

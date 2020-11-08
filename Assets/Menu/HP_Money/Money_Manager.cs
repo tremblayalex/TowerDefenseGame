@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using TMPro;
 using UnityEngine;
 
 public class Money_Manager : MonoBehaviour
 {
-    public int money = 10;
+    public int money = 300;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,19 +18,35 @@ public class Money_Manager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Minus))
         {
-            ChangerArgent(-1);
+            ChangerArgent(-100);
         }
         if (Input.GetKeyDown(KeyCode.Equals))
         {
-            ChangerArgent(1);
+            ChangerArgent(100);
         }
     }
 
-    void ChangerArgent(int inMoney)
+    public bool ChangerArgent(int inMoney) // Changer le nom
     {
-        money += inMoney;
+        bool changeInMoney = false;
         TextMeshProUGUI myText = gameObject.GetComponent<TextMeshProUGUI>();
-        myText.text = money.ToString();
         
+
+        if ((money+=inMoney) > 0)
+        {
+            money += inMoney;
+            myText.text = money.ToString();
+            changeInMoney = true;
+        }
+        else 
+        {
+            AnimationArgentInsufisant(myText);
+        }
+        return changeInMoney;
+    }
+
+    void AnimationArgentInsufisant(TextMeshProUGUI myText)
+    {
+        myText.color = new Color(1, 0.5f, 0.5f, 1);
     }
 }

@@ -109,7 +109,7 @@ public class Enemy : MonoBehaviour
     {    
         hitPoints -= damage;
 
-        if (hitPoints < 0)
+        if (hitPoints <= 0)
         {
             KillEnemy();
         }

@@ -9,7 +9,9 @@ TagManager:
   - Death_message
   - Enemy
   - SoundPlayer
-  - SpawnerSoundPlayer
+  - WorldGrid
+  - Floor
+  - Nature
   layers:
   - Default
   - TransparentFX

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8996909711089464802}
-  - component: {fileID: -1999528084032307018}
+  - component: {fileID: 6689038419513101317}
   m_Layer: 0
   m_Name: ClickManager
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-1999528084032307018
+--- !u!114 &6689038419513101317
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,3 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a1a9a7a16942ef42a0213041faab61a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ModePlaceTurret: 1
+  towerScriptableObjects:
+  - {fileID: 11400000, guid: 1d957024aaff5c248aff5f23c701a58a, type: 2}
+  towerPrefab: {fileID: 5257581097835957283, guid: ce472e5c172ac7344886d29bae1fe3fc,
+    type: 3}

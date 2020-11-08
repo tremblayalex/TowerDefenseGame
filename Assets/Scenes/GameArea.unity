@@ -353,7 +353,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 67508889}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18de03ccb36d2f2459b0cc90da14fcd2, type: 3}
+  m_Script: {fileID: 11500000, guid: f3f4d6fb88a5e86468cca61906059ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   money: 10
@@ -649,7 +649,7 @@ GameObject:
   - component: {fileID: 310560271}
   m_Layer: 0
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3835,7 +3835,7 @@ GameObject:
   - component: {fileID: 362554566}
   m_Layer: 0
   m_Name: Nature
-  m_TagString: Untagged
+  m_TagString: Nature
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5558,7 +5558,7 @@ GameObject:
   - component: {fileID: 1656217769}
   m_Layer: 0
   m_Name: Grid
-  m_TagString: Untagged
+  m_TagString: WorldGrid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

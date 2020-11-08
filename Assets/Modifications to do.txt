@@ -6,7 +6,7 @@ Add fireRate property
 --- To code in the Bullet Script ---
 When a bullet explode, spawn explosion particles
 
----To code in the Enemy Script-- -
+--- To code in the Enemy Script ---
 When an enemy dies, money is rewarded
 (Add a money property to the scriptable object? More difficult enemies should give more money)
 
