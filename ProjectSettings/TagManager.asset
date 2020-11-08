@@ -8,6 +8,8 @@ TagManager:
   - PathEnd
   - Death_message
   - Enemy
+  - SoundPlayer
+  - SpawnerSoundPlayer
   layers:
   - Default
   - TransparentFX

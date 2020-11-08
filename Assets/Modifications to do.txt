@@ -1,2 +1,37 @@
+========== To-DO =============
+
+--- Tower Prefab and Tower.cs ---
+Add fireRate property
+
+--- To code in the Bullet Script ---
+When a bullet explode, spawn explosion particles
+
+---To code in the Enemy Script-- -
+When an enemy dies, money is rewarded
+(Add a money property to the scriptable object? More difficult enemies should give more money)
+
+
+
+========== Modification from main project ==============
+
 - Add Tag "Enemy" to the Enemy Prefab
 - Edit the Tower.cs script
+
+- Class Enemy:
+	Added variable 'distanceTravelled'
+	Added function 'getDistanceTravelled()'
+	Modified function 'MoveTowardsTarget()'
+	Removed 'hpEnemi'
+	Modified function 'LoseHP' into 'Damage'
+	Modified function 'EnemyDeath' into 'KillEnemy'
+
+- Added TowerRange Prefab
+- Added Script "TowerRange.cs" to TowerRange Prefab
+- Added TowerRangePrefab to Tower Prefab
+- Added BulletPrefab to Tower Prefab
+
+- Added Bullet Folder
+
+- Added SoundPlayer Folder
+- Added SoundPlayer Object
+- Added tag "SoundPlayer" to SoundPlayer Object

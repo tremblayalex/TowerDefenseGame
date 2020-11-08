@@ -7,14 +7,13 @@ public class Enemy : MonoBehaviour
 {
     private int hitPoints;
     private float movementSpeed;
+    private float distanceTravelled;
 
     private GridLayout grid;
     private Tilemap tilemap;
     private Vector3 pathEndPosition;
 
     private Vector3 targetPosition;
-
-    public int hpEnnemi;
 
     public void setHitPoints(int inHitPoints)
     {
@@ -36,12 +35,19 @@ public class Enemy : MonoBehaviour
         movementSpeed = inMovementSpeed;
     }
 
+    public float getDistanceTravelled()
+    {
+        return distanceTravelled;
+    }
+
     void Start()
     {
+        distanceTravelled = 0;
+
         grid = GameObject.FindWithTag("Road").GetComponentInParent<GridLayout>();
         tilemap = GameObject.FindWithTag("Road").GetComponent<Tilemap>();
         pathEndPosition = GameObject.FindWithTag("PathEnd").transform.position;
-
+    
         targetPosition = transform.position;
     }
 
@@ -99,18 +105,17 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void LoseHP(int dammage)
-    {
-        
-        hpEnnemi -= dammage;
+    public void Damage(int damage)
+    {    
+        hitPoints -= damage;
 
-        if (hpEnnemi < 0)
+        if (hitPoints < 0)
         {
-            EnnemiDeath();
+            KillEnemy();
         }
     }
 
-    public void EnnemiDeath()
+    public void KillEnemy()
     {
         Destroy(gameObject);
     }
@@ -138,6 +143,9 @@ public class Enemy : MonoBehaviour
     {
         float maxMovementDistance = movementSpeed * Time.deltaTime;
 
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, maxMovementDistance);
+        Vector3 newPosition = Vector3.MoveTowards(transform.position, targetPosition, maxMovementDistance);
+
+        distanceTravelled += Vector3.Distance(transform.position, newPosition);
+        transform.position = newPosition;
     }
 }

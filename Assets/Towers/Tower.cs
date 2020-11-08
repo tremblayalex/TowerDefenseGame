@@ -5,6 +5,12 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
+    public GameObject towerRangePrefab;
+    public GameObject bulletPrefab;
+
+    private GameObject towerRangeGameObject;
+    private TowerRange towerRange;
+
     private int damage;
     private float range;
 
@@ -21,6 +27,11 @@ public class Tower : MonoBehaviour
     public void setRange(float inRange)
     {
         range = inRange;
+
+        if (towerRange != null)
+        {
+            towerRange.setRange(range);
+        }
     }
 
     public float getRange()
@@ -28,73 +39,93 @@ public class Tower : MonoBehaviour
         return range;
     }
 
+    void Awake()
+    {
+        InitializeTowerRange();     
+    }
+
     void Start()
     {
-        
+        DisplayFireRange();
     }
+
+    private void InitializeTowerRange()
+    {
+        towerRangeGameObject = Instantiate(towerRangePrefab, transform.position, Quaternion.identity);
+        towerRange = towerRangeGameObject.GetComponent<TowerRange>();
+    }
+
+    public void DisplayFireRange()
+    {
+        towerRange.DisplayFireRange();
+    }
+
+    public void HideFireRange()
+    {
+        towerRange.HideFireRange();
+    }
+
+    private float delayTemp = 0;
 
     void Update()
     {
-        // Find the next enemy target
-        // The target must be within range
-        // The target must be the one that has made the most progress in the parkour
-        // (The one closest to completing the parkour)
-        FindTargetEnemy();
+        GameObject target = FindTargetEnemy();
 
-        // Rotate Towards Enemy
+        delayTemp -= Time.deltaTime; //--------------------------------------<<<
 
-        // Shoot Bullet Towards Enemy
+        if (target != null)
+        {
+            RotateTowardsTarget(target.transform.position);
 
-
-
-        // --- To code in the Bullet Script ---
-        // A shooting sounds plays when it is spawned
-        //
-        // The bullet must move towards the enemy (to ajust for enemy movement)
-        //
-        // Two options for contact with enemy:
-        //      > The bullet check distance with enemy
-        //        Easy to do but requieres checking manually
-        //      > The bullet will use IsTrigger
-        //        Uses Unity
-        //
-        // To make it more interesting:
-        // The bullet could damage all nearby enemies instead of only damaging the enemy it shot at
-        // More logical since the bullet will explode
-        //
-        // Explosion effects:
-        //      > Explosion particles are displayed
-        //      > An explosion sound is played
-
-
-
-        // --- To code in the Enemy Script ---
-        // Once the enemy has no more hitPoints, it dies
-        //
-        // When an enemy dies, money is rewarded
-        // (Add a money property to the scriptable object? More difficult enemies should give more money)
+            if (delayTemp <= 0) //--------------------------------------<<<
+            {
+                ShootBulletTowardsTarget(target);
+                delayTemp = 0.5f; //--------------------------------------<<<
+            }          
+        }
     }
 
     private GameObject FindTargetEnemy()
     {
-        GameObject nearestEnemy = null;
-        float distanceToNearestEnemy = range;
+        GameObject targetEnemy = null;
+        float maxDistanceTravelled = 0;
 
         GameObject[] allEnemies = GameObject.FindGameObjectsWithTag("Enemy");
 
         foreach (GameObject enemy in allEnemies)
         {
-            float distanceFromTower = Vector3.Distance(gameObject.transform.position, enemy.transform.position);
+            float distanceFromTowerToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
 
-            if (distanceFromTower <= range)
+            if (distanceFromTowerToEnemy <= range)
             {
-                float x = enemy.transform.position.x;
-                float y = enemy.transform.position.y;
+                float distanceTravelled = enemy.GetComponent<Enemy>().getDistanceTravelled();
 
-                print("X:" + x + ", Y:" + y + " -- Distance:" + distanceFromTower);
-            }
+                if (distanceTravelled > maxDistanceTravelled)
+                {
+                    targetEnemy = enemy;
+
+                    maxDistanceTravelled = distanceTravelled;
+                }
+            }          
         }
-        
-        return nearestEnemy;
+
+        return targetEnemy;
+    }
+
+    private void RotateTowardsTarget(Vector3 targetPosition)
+    {
+        float angleSpriteCorrection = -90;
+
+        Vector2 current = transform.position;
+        Vector2 targetPosition2D = targetPosition;
+        var direction = targetPosition2D - current;
+        var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle + angleSpriteCorrection, Vector3.forward);
+    }
+
+    private void ShootBulletTowardsTarget(GameObject target)
+    {
+        GameObject newBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        newBullet.GetComponent<Bullet>().setTargetEnemy(target);
     }
 }
