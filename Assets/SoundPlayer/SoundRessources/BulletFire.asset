@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: BulletFire
   m_EditorClassIdentifier: 
   soundToPlay: {fileID: 8300000, guid: 75292390a86445a418e71f02a725070b, type: 3}
+  volumeScale: 0.3

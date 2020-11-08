@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: BulletExplosion
   m_EditorClassIdentifier: 
   soundToPlay: {fileID: 8300000, guid: dcc294c77fc28b541ac19cdade4827a8, type: 3}
-  volumeScale: 0
+  volumeScale: 1
