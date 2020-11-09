@@ -34,9 +34,8 @@ public class HP_Manager : MonoBehaviour
         if (Vie <= 0)
         {
             myText.text = "0";
-            Time.timeScale = 0;
-            deathCanvasPrefabInstantiation = Instantiate(deathCanvasPrefab, new Vector3(0, 0, 0), gameObject.transform.rotation);
-            deathCanvasPrefabInstantiation.layer = 5;
+
+            Camera.main.GetComponent<GameManager>().EndGame();
         }
     }
 }

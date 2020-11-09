@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 3889123813321896814}
   - component: {fileID: 3889123813321896801}
   - component: {fileID: 3889123813321896812}
-  - component: {fileID: 1473464697}
-  - component: {fileID: 1473464695}
+  - component: {fileID: 1473464696}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -106,7 +105,7 @@ MonoBehaviour:
   m_CropFrameX: 1
   m_CropFrameY: 1
   m_StretchFill: 1
---- !u!114 &1473464697
+--- !u!114 &1473464696
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,21 +114,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3889123813321896800}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eafd915c8784a1447a53ee097a3deb46, type: 3}
+  m_Script: {fileID: 11500000, guid: 115f0c7df0bc0834b83b5fcaaeef1ded, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseButton: {fileID: 0}
+  pauseSprite: {fileID: 21300000, guid: e7a061ab792d3d841a0d3f4d9d815e29, type: 3}
+  playSprite: {fileID: 21300000, guid: fe1914fca90b177419dc82b92d0cf021, type: 3}
+  towerPurchaseButtons:
+  - {fileID: 0}
   pauseMessagePrefab: {fileID: 2469972931723832435, guid: b7765a974ee866e4399ffe46f8f39d44,
     type: 3}
-  pauseMessageInstantiation: {fileID: 0}
---- !u!114 &1473464695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3889123813321896800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 765b57b9c23b79549b5356f40b507034, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  deathCanvasPrefab: {fileID: 4274778971105502683, guid: 6e98a3a120cbe30419fa0bc29159ec20,
+    type: 3}

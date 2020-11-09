@@ -8,8 +8,6 @@ using UnityEngine.XR.WSA;
 
 public class ClickManager : MonoBehaviour
 {
-    
-
     public enum shoppingPosibilities
     {
         Nothing,
@@ -224,26 +222,36 @@ public class ClickManager : MonoBehaviour
         return gameObjectsNames;
     }
 
-    public void SelectTurretToBuy(string posibility)
+    public void SelectTurret1()
     {
-        if (posibility == "Nothing")
-        {
-            ModePlaceTurret = shoppingPosibilities.Nothing;
-        }
-        else if (posibility == "Turret1")
-        {
-            ModePlaceTurret = shoppingPosibilities.Turret1;
-        }
-        else if (posibility == "Turret2")
-        {
-            ModePlaceTurret = shoppingPosibilities.Turret2;
-        }
-        else if (posibility == "Turret3")
-        {
-            ModePlaceTurret = shoppingPosibilities.Turret3;
-        }
-
+        ModePlaceTurret = shoppingPosibilities.Turret1;
     }
+
+    //public void SelectTurretToBuy(shoppingPosibilities posibility)
+    //{
+    //    ModePlaceTurret = posibility;
+    //}
+
+    //public void SelectTurretToBuy(string posibility)
+    //{
+    //    if (posibility == "Nothing")
+    //    {
+    //        ModePlaceTurret = shoppingPosibilities.Nothing;
+    //    }
+    //    else if (posibility == "Turret1")
+    //    {
+    //        ModePlaceTurret = shoppingPosibilities.Turret1;
+    //    }
+    //    else if (posibility == "Turret2")
+    //    {
+    //        ModePlaceTurret = shoppingPosibilities.Turret2;
+    //    }
+    //    else if (posibility == "Turret3")
+    //    {
+    //        ModePlaceTurret = shoppingPosibilities.Turret3;
+    //    }
+
+    //}
 
 }
 
