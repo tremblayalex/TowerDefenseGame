@@ -22,6 +22,7 @@ public class SpawnerTower : MonoBehaviour
         GameObject newTower = Instantiate(towerPrefab, position, Quaternion.identity);
         newTower.GetComponent<Tower>().setDamage(towerScriptableObjects[0].damage);
         newTower.GetComponent<Tower>().setRange(towerScriptableObjects[0].range);
+        newTower.GetComponent<Tower>().setFireRate(towerScriptableObjects[0].fireRate);
         newTower.GetComponent<SpriteRenderer>().sprite = towerScriptableObjects[0].towerSprite;
     }
 }

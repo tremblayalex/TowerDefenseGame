@@ -13,6 +13,9 @@ public class Tower : MonoBehaviour
 
     private int damage;
     private float range;
+    private float fireRate;
+
+    private float delayBeforeNextFire = 0f;
 
     public void setDamage(int inDamage)
     {
@@ -39,6 +42,16 @@ public class Tower : MonoBehaviour
         return range;
     }
 
+    public void setFireRate(float inFireRate)
+    {
+        fireRate = inFireRate;
+    }
+
+    public float getFireRate()
+    {
+        return fireRate;
+    }
+
     void Awake()
     {
         InitializeTowerRange();     
@@ -60,22 +73,22 @@ public class Tower : MonoBehaviour
         towerRange.HideFireRange();
     }
 
-    private float delayTemp = 0;
+    
 
     void Update()
     {
         GameObject target = FindTargetEnemy();
 
-        delayTemp -= Time.deltaTime; //--------------------------------------<<<
+        delayBeforeNextFire -= Time.deltaTime;
 
         if (target != null)
         {
             RotateTowardsTarget(target.transform.position);
 
-            if (delayTemp <= 0) //--------------------------------------<<<
+            if (delayBeforeNextFire <= 0)
             {
                 ShootBulletTowardsTarget(target);
-                delayTemp = 0.5f; //--------------------------------------<<<
+                delayBeforeNextFire = fireRate;
             }          
         }
     }

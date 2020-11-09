@@ -8,4 +8,5 @@ public class TowerScriptableObject : ScriptableObject
     public Sprite towerSprite;
     public int damage;
     public float range;
+    public float fireRate;
 }

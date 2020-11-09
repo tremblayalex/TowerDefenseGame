@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
 {
     private int hitPoints;
     private float movementSpeed;
+    private int dropMoney;
     private float distanceTravelled;
 
     private GridLayout grid;
@@ -33,6 +34,16 @@ public class Enemy : MonoBehaviour
     public void setMovementSpeed(float inMovementSpeed)
     {
         movementSpeed = inMovementSpeed;
+    }
+
+    public int getDropMoney()
+    {
+        return dropMoney;
+    }
+
+    public void setDropMoney(int inDropMoney)
+    {
+        dropMoney = inDropMoney;
     }
 
     public float getDistanceTravelled()
@@ -117,6 +128,7 @@ public class Enemy : MonoBehaviour
 
     public void KillEnemy()
     {
+        GameObject.Find("Money").GetComponent<Money_Manager>().ChangerArgent(dropMoney);
         Destroy(gameObject);
     }
 

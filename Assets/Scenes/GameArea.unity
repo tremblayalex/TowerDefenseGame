@@ -617,10 +617,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyScriptableObjects:
+  - {fileID: 11400000, guid: 751b316339448344aab8577202a00b56, type: 2}
   - {fileID: 11400000, guid: a3964e7c2c400bd408891daeb66fab2d, type: 2}
+  - {fileID: 11400000, guid: c95f3de3bd0bef74c82f976781bff46f, type: 2}
+  - {fileID: 11400000, guid: d50c59b8131c51e498767cc4e2925126, type: 2}
+  - {fileID: 11400000, guid: 0f3b055f32344dd448157a80431c2c32, type: 2}
+  - {fileID: 11400000, guid: ac4ec81adf3916f48908551f7a36f10a, type: 2}
+  - {fileID: 11400000, guid: 4e4491a128aee2c44b219202907bda87, type: 2}
+  - {fileID: 11400000, guid: 1b947806318b5714f8fa8dd744a32cc8, type: 2}
+  - {fileID: 11400000, guid: fc145566f8679024fbb3afe1d6ad90d1, type: 2}
+  - {fileID: 11400000, guid: 4b78c34c6c4f9004e8a58c317ee28025, type: 2}
+  - {fileID: 11400000, guid: f2a6460b3999e7946870ac15ff4b9b1c, type: 2}
+  - {fileID: 11400000, guid: 54f5460183919434abfc8c88054c09d7, type: 2}
   enemyPrefab: {fileID: 8949875820659252465, guid: 58ba9522a105c104e8285306f08db1fb,
     type: 3}
-  spawnDelay: 2
+  waveDuration: 2
+  delayBetweenWaves: 5
+  firstWaveEnemyCount: 3
+  waveEnemyIncrementMultiplier: 2
 --- !u!4 &234351341
 Transform:
   m_ObjectHideFlags: 0
