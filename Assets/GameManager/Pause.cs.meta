@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: eafd915c8784a1447a53ee097a3deb46
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - pauseMessagePrefab: {fileID: 2469972931723832435, guid: b7765a974ee866e4399ffe46f8f39d44,
+      type: 3}
+  - pauseMessageInstantiation: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
