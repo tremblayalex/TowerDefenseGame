@@ -73,8 +73,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -375,8 +375,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9135757765731386317, guid: b92c3f22274727e4d85468330c1e1884,
-          type: 3}
+      - m_Target: {fileID: 1473464695, guid: 5df3a8d06bc0fae4dac3dd4430a92221, type: 3}
         m_MethodName: RestartGame
         m_Mode: 3
         m_Arguments:
