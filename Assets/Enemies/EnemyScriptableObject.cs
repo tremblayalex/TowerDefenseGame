@@ -8,4 +8,6 @@ public class EnemyScriptableObject : ScriptableObject
     public Sprite enemySprite;
     public int hitPoints;
     public float movementSpeed;
+    public int dropMoney;
+    public int dammageEndOfPath;
 }
