@@ -45,9 +45,9 @@ public class Spawner : MonoBehaviour
     IEnumerator SpawnAWave(int nombreEnnemie, float timeBetwenEnnemi)
     {
 
-        for (int i = 0; i < nombreEnnemie; i++)     
+        //for (int i = 0; i < nombreEnnemie; i++)     
        
-       // while (nombreEnnemie > 0)
+        while (nombreEnnemie > 0)
         {
             //Debug.Log("spawnOneEnemi");
             CustomWave(ref nombreEnnemie);
@@ -173,7 +173,7 @@ public class Spawner : MonoBehaviour
     }
     void SpwanTwelvethEnemyType(ref int nombreEnnemiType)
     {
-        if (nombreEnnemiType <= 120 && nombreEnnemiType > 110)
+        if (nombreEnnemiType > 110)
         {
             SpawnNewEnemy(11);
             nombreEnnemiType--;
