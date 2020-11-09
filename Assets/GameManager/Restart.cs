@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StartGame : MonoBehaviour
+public class Restart : MonoBehaviour
 {
-    public void ChangerScene(int indexScene)
+    public void RestartGame(int indexScene)
     {
         SceneManager.LoadScene(indexScene);
+        Time.timeScale = 1;
     }
 }

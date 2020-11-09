@@ -7,24 +7,22 @@ using UnityEngine.UI;
 public class HP_Manager : MonoBehaviour
 {
     public int Vie = 10;
-    
+    public GameObject deathCanvasPrefab;
+    public GameObject deathCanvasPrefabInstantiation;
 
 
     public void LoseHP()
     {
         TextMeshProUGUI myText = gameObject.GetComponent<TextMeshProUGUI>();
 
-        if (Vie > 0)
-        {
-            Vie = Vie - 1;
-        }
+        Vie = Vie - 1;
+        myText.text = Vie.ToString();
         if (Vie <= 0)
         {
-            myText.text = "Vous êtes mort";
-        }
-        else
-        {
-            myText.text = Vie.ToString();
+            myText.text = "0";
+            Time.timeScale = 0;
+            deathCanvasPrefabInstantiation = Instantiate(deathCanvasPrefab, new Vector3(0, 0, 0), gameObject.transform.rotation);
+            deathCanvasPrefabInstantiation.layer = 5;
         }
     }
 
