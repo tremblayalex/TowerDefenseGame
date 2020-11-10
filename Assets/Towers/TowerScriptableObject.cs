@@ -9,4 +9,5 @@ public class TowerScriptableObject : ScriptableObject
     public int damage;
     public float range;
     public float fireRate;
+    public float price;
 }

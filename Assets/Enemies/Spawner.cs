@@ -35,7 +35,6 @@ public class Spawner : MonoBehaviour
             IEnumerator coroutine = SpawnAWave(ennemiCount, spawnDelay);
             StartCoroutine(coroutine);
             ennemiCount = (int)(ennemiCount * waveEnemyIncrementMultiplier);
-            Debug.Log("count :" + ennemiCount);
             delayBeforeNextSpawn = timeBetweenWaves;
         }
 
@@ -56,9 +55,6 @@ public class Spawner : MonoBehaviour
 
         }
         waveNumber++;
-
-        print("wave is finish");
-
     }
 
     private void CustomWave(ref int nombreEnnemi)

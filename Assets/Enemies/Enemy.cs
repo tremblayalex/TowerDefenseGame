@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
 
     private GridLayout grid;
     private Tilemap tilemap;
+    private HPManager hpManager;
+    private MoneyManager moneyManager;
     private Vector3 pathEndPosition;
 
     private Vector3 targetPosition;
@@ -58,7 +60,9 @@ public class Enemy : MonoBehaviour
         grid = GameObject.FindWithTag("Road").GetComponentInParent<GridLayout>();
         tilemap = GameObject.FindWithTag("Road").GetComponent<Tilemap>();
         pathEndPosition = GameObject.FindWithTag("PathEnd").transform.position;
-    
+        hpManager = GameObject.Find("HPManager").GetComponent<HPManager>();
+        moneyManager = GameObject.Find("MoneyManager").GetComponent<MoneyManager>();
+
         targetPosition = transform.position;
     }
 
@@ -82,8 +86,7 @@ public class Enemy : MonoBehaviour
     void EnnemyEndThePath()
     {
         Destroy(gameObject);
-        GameObject deathMessage = GameObject.FindGameObjectWithTag("Death_message");
-        deathMessage.GetComponent<HP_Manager>().LoseHP();
+        hpManager.GetComponent<HPManager>().LoseHP();
     }
 
     private void CalculateNewTarget()
@@ -128,7 +131,7 @@ public class Enemy : MonoBehaviour
 
     public void KillEnemy()
     {
-        GameObject.Find("Money").GetComponent<Money_Manager>().ChangerArgent(dropMoney);
+        moneyManager.AddMoney(dropMoney);
         Destroy(gameObject);
     }
 
