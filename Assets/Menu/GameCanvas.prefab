@@ -423,7 +423,6 @@ GameObject:
   - component: {fileID: 2633761035578840111}
   - component: {fileID: 2633761035578840106}
   - component: {fileID: 2633761035578840105}
-  - component: {fileID: 2633761035578840104}
   m_Layer: 8
   m_Name: TextTowerCost
   m_TagString: Death_message
@@ -569,21 +568,6 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &2633761035578840104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2633761035578840110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfcacdc0535031c4facf102136dbca14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deathCanvasPrefab: {fileID: 4274778971105502683, guid: 6e98a3a120cbe30419fa0bc29159ec20,
-    type: 3}
-  startingLife: 30
 --- !u!1 &2633761035825154181
 GameObject:
   m_ObjectHideFlags: 0
@@ -880,7 +864,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'DPS: 50'
+  m_text: 'DPS: 5'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -949,7 +933,7 @@ MonoBehaviour:
   m_margin: {x: 0.09776926, y: 0, z: -0.21807861, w: 0}
   m_textInfo:
     textComponent: {fileID: 2633761035988433854}
-    characterCount: 7
+    characterCount: 6
     spriteCount: 0
     spaceCount: 1
     wordCount: 2
@@ -984,9 +968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfcacdc0535031c4facf102136dbca14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathCanvasPrefab: {fileID: 4274778971105502683, guid: 6e98a3a120cbe30419fa0bc29159ec20,
-    type: 3}
-  startingLife: 30
+  startingLife: 3
 --- !u!1 &2633761036067680323
 GameObject:
   m_ObjectHideFlags: 0

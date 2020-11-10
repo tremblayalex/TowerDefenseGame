@@ -5,10 +5,13 @@ using UnityEngine.Tilemaps;
 
 public class TowerManager : MonoBehaviour
 {
+    public TowerScriptableObject[] towerScriptableObjects;
+
     private GridLayout grid;
     private Tilemap tilemapRoad;
     private Tilemap tilemapNature;
     private SpawnerTower spawnerTower;
+    private MoneyManager moneyManager;
 
     private int towerPurchaseSelectedIndex;
     private Vector3Int selectedTilePosition;
@@ -25,6 +28,7 @@ public class TowerManager : MonoBehaviour
         tilemapRoad = GameObject.FindWithTag("Road").GetComponent<Tilemap>();
         tilemapNature = GameObject.FindWithTag("Nature").GetComponent<Tilemap>();
         spawnerTower = GameObject.Find("SpawnerTower").GetComponent<SpawnerTower>();
+        moneyManager = GameObject.Find("MoneyManager").GetComponent<MoneyManager>();
     }
 
     public void EnableTowerPurchaseMode(int towerIndex)
@@ -60,8 +64,11 @@ public class TowerManager : MonoBehaviour
         {
             DestroyPreviousShadowTower();
 
-            Vector3 actualTowerPosition = ConvertTilePositionToTowerPosition(selectedTilePosition);
-            allPlacedTowers.Add(spawnerTower.SpawnNewTower(actualTowerPosition));
+            if (moneyManager.SpendMoney(towerScriptableObjects[towerPurchaseSelectedIndex].price))
+            {
+                Vector3 actualTowerPosition = ConvertTilePositionToTowerPosition(selectedTilePosition);
+                allPlacedTowers.Add(spawnerTower.SpawnNewTower(actualTowerPosition));
+            }       
         }
     }
 

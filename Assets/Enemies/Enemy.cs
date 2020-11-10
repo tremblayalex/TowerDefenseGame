@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     private float movementSpeed;
     private int dropMoney;
     private float distanceTravelled;
+    private int dammageEndOfPath;
 
     private GridLayout grid;
     private Tilemap tilemap;
@@ -46,6 +47,16 @@ public class Enemy : MonoBehaviour
     public void setDropMoney(int inDropMoney)
     {
         dropMoney = inDropMoney;
+    }
+
+    public int getDammageEndOfPath()
+    {
+        return dammageEndOfPath;
+    }
+
+    public void setDammageEndOfPath(int inDammageEndOfPath)
+    {
+        dammageEndOfPath = inDammageEndOfPath;
     }
 
     public float getDistanceTravelled()
@@ -86,7 +97,7 @@ public class Enemy : MonoBehaviour
     void EnnemyEndThePath()
     {
         Destroy(gameObject);
-        hpManager.GetComponent<HPManager>().LoseHP();
+        hpManager.GetComponent<HPManager>().LoseHP(dammageEndOfPath);
     }
 
     private void CalculateNewTarget()

@@ -184,6 +184,7 @@ public class Spawner : MonoBehaviour
 
         newEnemy.GetComponent<Enemy>().setMovementSpeed(enemyScriptableObjects[indexEnnemi].movementSpeed);
         newEnemy.GetComponent<Enemy>().setDropMoney(enemyScriptableObjects[indexEnnemi].dropMoney);
+        newEnemy.GetComponent<Enemy>().setDammageEndOfPath(enemyScriptableObjects[indexEnnemi].dammageEndOfPath);
         newEnemy.GetComponent<SpriteRenderer>().sprite = enemyScriptableObjects[indexEnnemi].enemySprite;
     }
 }

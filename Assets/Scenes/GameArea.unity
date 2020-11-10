@@ -285,10 +285,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 54f5460183919434abfc8c88054c09d7, type: 2}
   enemyPrefab: {fileID: 8949875820659252465, guid: 58ba9522a105c104e8285306f08db1fb,
     type: 3}
-  waveDuration: 2
-  delayBetweenWaves: 5
-  firstWaveEnemyCount: 3
-  waveEnemyIncrementMultiplier: 2
+  waveDuration: 60
+  delayBetweenWaves: 15
+  firstWaveEnemyCount: 5
+  waveEnemyIncrementMultiplier: 1.3
 --- !u!4 &234351341
 Transform:
   m_ObjectHideFlags: 0
@@ -4132,11 +4132,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2633761035988433853, guid: 5d4ba45eb322f5a49afb523f30c15414,
-        type: 3}
-      propertyPath: startingLife
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 2633761036067680381, guid: 5d4ba45eb322f5a49afb523f30c15414,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4152,8 +4147,7 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1473464696}
-    m_RemovedComponents:
-    - {fileID: 2633761035578840104, guid: 5d4ba45eb322f5a49afb523f30c15414, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d4ba45eb322f5a49afb523f30c15414, type: 3}
 --- !u!114 &982022136 stripped
 MonoBehaviour:
@@ -5415,6 +5409,11 @@ PrefabInstance:
         type: 3}
       propertyPath: money
       value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 4595369508319129979, guid: ff51133e33cae2a45ad8208451475f36,
+        type: 3}
+      propertyPath: startingMoney
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6186453643844232312, guid: ff51133e33cae2a45ad8208451475f36,
         type: 3}

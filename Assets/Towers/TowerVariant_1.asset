@@ -16,5 +16,5 @@ MonoBehaviour:
     type: 3}
   damage: 1
   range: 5
-  fireRate: 0.1
-  price: 10
+  fireRate: 0.2
+  price: 25

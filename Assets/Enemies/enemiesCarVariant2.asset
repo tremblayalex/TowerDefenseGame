@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: enemiesCarVariant2
   m_EditorClassIdentifier: 
   enemySprite: {fileID: 0}
-  hitPoints: 0
+  hitPoints: 30
   movementSpeed: 8
-  dropMoney: 0
+  dropMoney: 15
   dammageEndOfPath: 0

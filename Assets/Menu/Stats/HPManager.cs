@@ -40,9 +40,4 @@ public class HPManager : MonoBehaviour
         }
         
     }
-
-    public void LoseHP()
-    {
-        LoseHP(1);
-    }
 }
