@@ -39,11 +39,14 @@ public class InputManager : MonoBehaviour
             mousePreviouslyInMap = false;
         }
 
-        if (Input.GetAxis("Fire1") != 0 && !mouseDown)
+        if (Input.GetAxis("Fire1") != 0)
         {
-            towerManager.MouseClick();
+            if (!mouseDown)
+            {
+                towerManager.MouseClick();
 
-            mouseDown = true;
+                mouseDown = true;
+            }       
         }
         else
         {
