@@ -43,6 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfcacdc0535031c4facf102136dbca14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathCanvasPrefab: {fileID: 4274778971105502683, guid: 6e98a3a120cbe30419fa0bc29159ec20,
-    type: 3}
-  startingLife: 3
+  startingLife: 20
