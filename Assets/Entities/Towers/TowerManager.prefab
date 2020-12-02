@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerScriptableObjects:
-  - {fileID: 11400000, guid: 1d957024aaff5c248aff5f23c701a58a, type: 2}
+  - {fileID: 11400000, guid: c474759b16bdf3446a2cdbadc9fb9849, type: 2}

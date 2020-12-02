@@ -9,6 +9,19 @@ public abstract class ActivatedTower : Tower
 
     protected float delayBeforeNextFire = 0f;
 
+    protected void InitializeActivatedTower(Sprite inSprite, float inRange, float inFireRate, float inPrice)
+    {
+        base.InitializeTower(inSprite, inRange);
+
+        fireRate = inFireRate;
+        price = inPrice;      
+    }
+
+    protected void AwakeActivatedTower()
+    {
+        base.AwakeTower();
+    }
+
     public void setFireRate(float inFireRate)
     {
         fireRate = inFireRate;

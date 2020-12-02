@@ -4,51 +4,58 @@ using UnityEngine;
 
 public class SpawnerTower : MonoBehaviour
 {
-    public TowerScriptableObject[] towerScriptableObjects;
-    public GameObject towerPrefab;
+    private TowerSettings towerSettings;
 
     void Start()
     {
-        //SpawnNewTower(0, 0);
+        towerSettings = GameObject.Find("TowerSettings").GetComponent<TowerSettings>();
+
+        SpawnFreezerTower(new Vector3(0, 0, 0));
     }
 
-    public GameObject SpawnNewTower(float x, float y)
+    public GameObject SpawnShadowTowerMachineGun(Vector3 position)
     {
-        return SpawnNewTower(new Vector3(x, y, 0));
+        Sprite sprite = towerSettings.machineGunTowerScriptableObjects[0].towerSprite;
+        float range = towerSettings.machineGunTowerScriptableObjects[0].range;
+        
+        return SpawnShadowTower(position, sprite, range);
     }
 
-    public GameObject SpawnGhostTower(float x, float y)
+    public GameObject SpawnShadowTowerMissileLauncher(Vector3 position)
     {
-        return SpawnGhostTower(new Vector3(x, y, 0));
+        Sprite sprite = towerSettings.missileLauncherTowerScriptableObjects[0].towerSprite;
+        float range = towerSettings.missileLauncherTowerScriptableObjects[0].range;
+
+        return SpawnShadowTower(position, sprite, range);
     }
 
-    public GameObject SpawnNewTower(Vector3 position)//  numeros
+    public GameObject SpawnShadowTowerFreezer(Vector3 position)
     {
-        GameObject newTower = Instantiate(towerPrefab, position, Quaternion.identity);
-        newTower.GetComponent<Tower>().setDamage(towerScriptableObjects[0].damage);
-        newTower.GetComponent<Tower>().setRange(towerScriptableObjects[0].range);
-        newTower.GetComponent<Tower>().setFireRate(towerScriptableObjects[0].fireRate);
-        newTower.GetComponent<Tower>().setPrice(towerScriptableObjects[0].price);
+        Sprite sprite = towerSettings.freezerTowerScriptableObjects[0].towerSprite;
+        float range = towerSettings.freezerTowerScriptableObjects[0].range;
 
-        newTower.GetComponent<SpriteRenderer>().sprite = towerScriptableObjects[0].towerSprite;
-
-        return newTower;
+        return SpawnShadowTower(position, sprite, range);
     }
-    public GameObject SpawnGhostTower(Vector3 position)//  numeros
+
+    private GameObject SpawnShadowTower(Vector3 position, Sprite sprite, float range)
     {
-        GameObject newTower = Instantiate(towerPrefab, position, Quaternion.identity);
-        newTower.GetComponent<Tower>().setDamage(0);
-        newTower.GetComponent<Tower>().setRange(towerScriptableObjects[0].range);
-        newTower.GetComponent<Tower>().setFireRate(float.MaxValue);
-        newTower.GetComponent<Tower>().DesactivateTower();
-        newTower.GetComponent<Tower>().setPrice(0);
-        newTower.GetComponent<SpriteRenderer>().sprite = towerScriptableObjects[0].towerSprite;
-        newTower.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+        GameObject shadowTower = Instantiate(towerSettings.shadowTowerPrefab, position, Quaternion.identity);
+        shadowTower.GetComponent<ShadowTower>().Initialize(sprite, range);
+        return shadowTower;
+    }
 
+    public GameObject SpawnMachineGunTower(Vector3 position)
+    {
+        return Instantiate(towerSettings.machineGunTowerPrefab, position, Quaternion.identity);
+    }
 
-        newTower.name = "ShadowTurret";
-        newTower.GetComponent<Tower>().DisplayFireRange();
+    public GameObject SpawnMissileLauncherTower(Vector3 position)
+    {
+        return Instantiate(towerSettings.missileLauncherTowerPrefab, position, Quaternion.identity);
+    }
 
-        return newTower;
+    public GameObject SpawnFreezerTower(Vector3 position)
+    {
+        return Instantiate(towerSettings.freezerTowerPrefab, position, Quaternion.identity);
     }
 }

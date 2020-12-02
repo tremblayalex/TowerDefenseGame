@@ -6,6 +6,18 @@ public abstract class RotationalTower : ActivatedTower
 {
     protected int damage;
 
+    protected void InitializeRotationalTower(Sprite inSprite, float inRange, float inFireRate, float inPrice, int inDamage)
+    {
+        base.InitializeActivatedTower(inSprite, inRange, inFireRate, inPrice);
+
+        damage = inDamage; 
+    }
+
+    protected void AwakeRotationalTower()
+    {
+        base.AwakeActivatedTower();
+    }
+
     public void setDamage(int inDamage)
     {
         damage = inDamage;

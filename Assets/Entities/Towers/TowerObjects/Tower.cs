@@ -5,12 +5,30 @@ using UnityEngine;
 
 public abstract class Tower : MonoBehaviour
 {
-    public GameObject towerRangePrefab;
+    protected TowerSettings towerSettings;
 
     private GameObject towerRangeGameObject;
     private TowerRange towerRange;
 
     protected float range;
+
+    protected void InitializeTower(Sprite inSprite, float inRange)
+    {
+        setSprite(inSprite);
+
+        InitializeTowerRange();
+        setRange(inRange);  
+    }
+
+    protected void AwakeTower()
+    {
+        towerSettings = GameObject.Find("TowerSettings").GetComponent<TowerSettings>();
+    }
+
+    public void setSprite(Sprite inSprite)
+    {
+        GetComponent<SpriteRenderer>().sprite = inSprite;
+    }
 
     public void setRange(float inRange)
     {
@@ -27,11 +45,6 @@ public abstract class Tower : MonoBehaviour
         return range;
     }
 
-    protected void TowerAwake()
-    {
-        InitializeTowerRange();
-    }
-
     void OnDestroy()
     {
         Destroy(towerRangeGameObject);
@@ -39,7 +52,7 @@ public abstract class Tower : MonoBehaviour
 
     private void InitializeTowerRange()
     {
-        towerRangeGameObject = Instantiate(towerRangePrefab, transform.position, Quaternion.identity);
+        towerRangeGameObject = Instantiate(towerSettings.towerRangePrefab, transform.position, Quaternion.identity);
         towerRange = towerRangeGameObject.GetComponent<TowerRange>();
     }
 

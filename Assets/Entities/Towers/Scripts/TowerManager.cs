@@ -67,7 +67,7 @@ public class TowerManager : MonoBehaviour
             if (moneyManager.SpendMoney(towerScriptableObjects[towerPurchaseSelectedIndex].price))
             {
                 Vector3 actualTowerPosition = ConvertTilePositionToTowerPosition(selectedTilePosition);
-                allPlacedTowers.Add(spawnerTower.SpawnNewTower(actualTowerPosition));
+                allPlacedTowers.Add(spawnerTower.SpawnMachineGunTower(actualTowerPosition));
             }       
         }
     }
@@ -99,7 +99,7 @@ public class TowerManager : MonoBehaviour
     {
         Vector3 actualTowerPosition = ConvertTilePositionToTowerPosition(tilePosition);
 
-        shadowTower = spawnerTower.SpawnGhostTower(actualTowerPosition);
+        shadowTower = spawnerTower.SpawnShadowTowerMachineGun(actualTowerPosition);
     }
 
     private Vector3 ConvertTilePositionToTowerPosition(Vector3Int tilePosition)
