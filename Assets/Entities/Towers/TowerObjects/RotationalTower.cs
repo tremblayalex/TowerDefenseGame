@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class RotationalTower : ActivatedTower
 {
+    public GameObject projectilePrefab;
+
     protected int damage;
 
     protected void InitializeRotationalTower(Sprite inSprite, float inRange, float inFireRate, float inPrice, int inDamage)

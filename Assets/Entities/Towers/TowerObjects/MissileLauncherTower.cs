@@ -33,7 +33,11 @@ public class MissileLauncherTower : RotationalTower
 
     protected override void ShootBulletTowardsTarget(GameObject target)
     {
-        //GameObject newBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-        //newBullet.GetComponent<Bullet>().setTargetEnemy(target);
+        GameObject newProjectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        Missile newMissile = newProjectile.GetComponent<Missile>();
+
+        newMissile.setDamage(damage);
+        newMissile.setExplosionRange(explosionRange);
+        newMissile.setTargetEnemy(target);
     }
 }

@@ -13,6 +13,28 @@ public class SpawnerTower : MonoBehaviour
         SpawnFreezerTower(new Vector3(0, 0, 0));
     }
 
+    public GameObject SpawnShadowTower(Vector3 position, int towerIndex)
+    {
+        GameObject newShadowTower = null;
+
+        switch (towerIndex)
+        {
+            case 0:
+                newShadowTower = SpawnShadowTowerMachineGun(position);
+                break;
+
+            case 1:
+                newShadowTower = SpawnShadowTowerMissileLauncher(position);
+                break;
+
+            case 2:
+                newShadowTower = SpawnShadowTowerFreezer(position);
+                break;
+        }
+
+        return newShadowTower;
+    }
+
     public GameObject SpawnShadowTowerMachineGun(Vector3 position)
     {
         Sprite sprite = towerSettings.machineGunTowerScriptableObjects[0].towerSprite;
@@ -42,6 +64,28 @@ public class SpawnerTower : MonoBehaviour
         GameObject shadowTower = Instantiate(towerSettings.shadowTowerPrefab, position, Quaternion.identity);
         shadowTower.GetComponent<ShadowTower>().Initialize(sprite, range);
         return shadowTower;
+    }
+
+    public GameObject SpawnTower(Vector3 position, int towerIndex)
+    {
+        GameObject newTower = null;
+
+        switch (towerIndex)
+        {
+            case 0:
+                newTower = SpawnMachineGunTower(position);
+                break;
+
+            case 1:
+                newTower = SpawnMissileLauncherTower(position);
+                break;
+
+            case 2:
+                newTower = SpawnFreezerTower(position);
+                break;
+        }
+
+        return newTower;
     }
 
     public GameObject SpawnMachineGunTower(Vector3 position)

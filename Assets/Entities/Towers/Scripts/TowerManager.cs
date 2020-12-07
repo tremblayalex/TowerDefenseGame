@@ -33,7 +33,7 @@ public class TowerManager : MonoBehaviour
 
     public void EnableTowerPurchaseMode(int towerIndex)
     {
-        if (towerIndex >= 0)
+        if (towerIndex >= 0 && towerIndex < towerScriptableObjects.Length)
         {
             towerPurchaseSelectedIndex = towerIndex;
         }
@@ -67,7 +67,7 @@ public class TowerManager : MonoBehaviour
             if (moneyManager.SpendMoney(towerScriptableObjects[towerPurchaseSelectedIndex].price))
             {
                 Vector3 actualTowerPosition = ConvertTilePositionToTowerPosition(selectedTilePosition);
-                allPlacedTowers.Add(spawnerTower.SpawnMachineGunTower(actualTowerPosition));
+                allPlacedTowers.Add(spawnerTower.SpawnTower(actualTowerPosition, towerPurchaseSelectedIndex));
             }       
         }
     }
@@ -99,7 +99,7 @@ public class TowerManager : MonoBehaviour
     {
         Vector3 actualTowerPosition = ConvertTilePositionToTowerPosition(tilePosition);
 
-        shadowTower = spawnerTower.SpawnShadowTowerMachineGun(actualTowerPosition);
+        shadowTower = spawnerTower.SpawnShadowTower(actualTowerPosition, towerPurchaseSelectedIndex);
     }
 
     private Vector3 ConvertTilePositionToTowerPosition(Vector3Int tilePosition)

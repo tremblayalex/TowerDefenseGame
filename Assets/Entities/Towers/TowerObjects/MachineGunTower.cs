@@ -19,7 +19,10 @@ public class MachineGunTower : RotationalTower
 
     protected override void ShootBulletTowardsTarget(GameObject target)
     {
-        //GameObject newBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-        //newBullet.GetComponent<Bullet>().setTargetEnemy(target);
+        GameObject newProjectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        Bullet newBullet = newProjectile.GetComponent<Bullet>();
+
+        newBullet.setDamage(damage);
+        newBullet.setTargetEnemy(target);  
     }
 }
