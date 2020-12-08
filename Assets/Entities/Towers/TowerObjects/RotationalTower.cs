@@ -20,6 +20,8 @@ public abstract class RotationalTower : ActivatedTower
         base.AwakeActivatedTower();
     }
 
+    public override abstract void Upgrade();
+
     public void setDamage(int inDamage)
     {
         damage = inDamage;

@@ -15,14 +15,13 @@ public abstract class Tower : MonoBehaviour
     protected void InitializeTower(Sprite inSprite, float inRange)
     {
         setSprite(inSprite);
-
-        InitializeTowerRange();
         setRange(inRange);  
     }
 
     protected void AwakeTower()
     {
         towerSettings = GameObject.Find("TowerSettings").GetComponent<TowerSettings>();
+        InitializeTowerRange();
     }
 
     public void setSprite(Sprite inSprite)

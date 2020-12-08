@@ -10,7 +10,17 @@ public class SpawnerTower : MonoBehaviour
     {
         towerSettings = GameObject.Find("TowerSettings").GetComponent<TowerSettings>();
 
-        SpawnFreezerTower(new Vector3(0, 0, 0));
+        //GameObject newTower = SpawnMachineGunTower(new Vector3(0, 0, 0));
+        //newTower.GetComponent<MachineGunTower>().DisplayFireRange();
+        //newTower.GetComponent<MachineGunTower>().Upgrade();
+
+        //GameObject newTower = SpawnMissileLauncherTower(new Vector3(0, 0, 0));
+        //newTower.GetComponent<MissileLauncherTower>().DisplayFireRange();
+        //newTower.GetComponent<MissileLauncherTower>().Upgrade();
+
+        //GameObject newTower = SpawnFreezerTower(new Vector3(0, 0, 0));
+        //newTower.GetComponent<FreezerTower>().DisplayFireRange();
+        //newTower.GetComponent<FreezerTower>().Upgrade();
     }
 
     public GameObject SpawnShadowTower(Vector3 position, int towerIndex)

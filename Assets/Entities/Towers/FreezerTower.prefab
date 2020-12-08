@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afa4eb51c0883704cabb4d20d61f3317, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  freezeWavePrefab: {fileID: 8334809838325493720, guid: 551d6ea9a9a20644ba5e62d17ce49ff5,
+    type: 3}
 --- !u!212 &-5215721398785431281
 SpriteRenderer:
   m_ObjectHideFlags: 0

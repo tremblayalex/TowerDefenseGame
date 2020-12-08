@@ -7,6 +7,6 @@ public class FreezerTowerScriptableObject : TowerScriptableObject
 {
     public float freezeTime;
     
-    [Range(0, 1)]
+    //[Range(0, 1)]
     public float slownessMultiplier;
 }

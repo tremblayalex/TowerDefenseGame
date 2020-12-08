@@ -19,6 +19,9 @@ public class Enemy : MonoBehaviour
 
     private Vector3 targetPosition;
 
+    private float freezeTime;
+    private float slownessMultiplier;
+
     public void setHitPoints(int inHitPoints)
     {
         hitPoints = inHitPoints;
@@ -66,7 +69,9 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        distanceTravelled = 0;
+        distanceTravelled = 0f;
+        freezeTime = 0f;
+        slownessMultiplier = 1f;
 
         grid = GameObject.FindWithTag("Road").GetComponentInParent<GridLayout>();
         tilemap = GameObject.FindWithTag("Road").GetComponent<Tilemap>();
@@ -90,8 +95,7 @@ public class Enemy : MonoBehaviour
         else
         {
             MoveTowardsTarget();
-        }
-        
+        }    
     }
 
     void EnnemyEndThePath()
@@ -110,24 +114,29 @@ public class Enemy : MonoBehaviour
         Vector3Int leftCellPosition = grid.WorldToCell(leftPosition);
         Vector3Int rightCellPosition = grid.WorldToCell(rightPosition);
 
+        Vector3 cellToCenterOffset = new Vector3(0.5f, 0.5f, 0);
+        Vector3 forwardCellCenterPosition = forwardCellPosition + cellToCenterOffset;
+        Vector3 leftCellCenterPosition = leftCellPosition + cellToCenterOffset;
+        Vector3 rightCellCenterPosition = rightCellPosition + cellToCenterOffset;
+
         if (tilemap.GetTile(forwardCellPosition) != null)
         {
-            targetPosition = forwardPosition;
+            targetPosition = forwardCellCenterPosition;
         }
         else if (tilemap.GetTile(leftCellPosition) != null)
         {
-            targetPosition = leftPosition;
-            RotateToLeft();
+            targetPosition = leftCellCenterPosition;
         }
         else if (tilemap.GetTile(rightCellPosition) != null)
         {
-            targetPosition = rightPosition;
-            RotateToRight();
+            targetPosition = rightCellCenterPosition;
         }
         else
         {
             print("[Error] No longer able to find next path!");
         }
+
+        RotateTowardsTarget();
     }
 
     public void Damage(int damage)
@@ -140,24 +149,16 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public void Freeze(float inFreezeTime, float inSlownessMultiplier)
+    {
+        freezeTime = inFreezeTime;
+        slownessMultiplier = inSlownessMultiplier;
+    }
+
     public void KillEnemy()
     {
         moneyManager.AddMoney(dropMoney);
         Destroy(gameObject);
-    }
-
-    private void RotateToLeft()
-    {
-        float currentRotation = transform.eulerAngles.z;
-
-        SetRotation(currentRotation + 90);
-    }
-
-    private void RotateToRight()
-    {
-        float currentRotation = transform.eulerAngles.z;
-
-        SetRotation(currentRotation - 90);
     }
 
     private void SetRotation(float angle)
@@ -165,9 +166,29 @@ public class Enemy : MonoBehaviour
         transform.eulerAngles = new Vector3(0, 0, angle);
     }
 
+    private void RotateTowardsTarget()
+    {
+        float angleSpriteCorrection = -90;
+
+        Vector2 current = transform.position;
+        Vector2 targetPosition2D = targetPosition;
+        var direction = targetPosition2D - current;
+        var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle + angleSpriteCorrection, Vector3.forward);
+    }
+
     private void MoveTowardsTarget()
     {
-        float maxMovementDistance = movementSpeed * Time.deltaTime;
+        if (freezeTime > 0)
+        {
+            freezeTime -= Time.deltaTime;
+        }
+        else
+        {
+            slownessMultiplier = 1f;
+        }
+
+        float maxMovementDistance = movementSpeed * slownessMultiplier * Time.deltaTime;
 
         Vector3 newPosition = Vector3.MoveTowards(transform.position, targetPosition, maxMovementDistance);
 

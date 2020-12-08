@@ -17,6 +17,17 @@ public class MachineGunTower : RotationalTower
         Initialize(so.towerSprite, so.range, so.fireRate, so.price, so.damage);       
     }
 
+    public override void Upgrade()
+    {
+        if (upgradeIndex + 1 < towerSettings.machineGunTowerScriptableObjects.Length)
+        {
+            upgradeIndex++;
+
+            MachineGunTowerScriptableObject so = towerSettings.machineGunTowerScriptableObjects[upgradeIndex];
+            Initialize(so.towerSprite, so.range, so.fireRate, so.price, so.damage);
+        }
+    }
+
     protected override void ShootBulletTowardsTarget(GameObject target)
     {
         GameObject newProjectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);

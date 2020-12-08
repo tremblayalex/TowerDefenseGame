@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d36a5f9050d48945bc267a7c8007ded, type: 3}
-  m_Name: missilelaucher_0
+  m_Script: {fileID: 11500000, guid: c508c0b442481ff42b887c8213ab9cf8, type: 3}
+  m_Name: freezer_1
   m_EditorClassIdentifier: 
-  towerSprite: {fileID: -3446471830066921269, guid: e19425e2ae6721747a565f66d73681a9,
+  towerSprite: {fileID: 2692938615380330224, guid: e19425e2ae6721747a565f66d73681a9,
     type: 3}
-  range: 10
+  range: 5
   fireRate: 2
-  price: 50
-  damage: 20
-  explosionRange: 3
+  price: 200
+  freezeTime: 1
+  slownessMultiplier: 0.25

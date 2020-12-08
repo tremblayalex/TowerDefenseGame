@@ -5,6 +5,7 @@ using UnityEngine;
 public class Missile : Projectile
 {
     public AudioSoundEffect explosionSound;
+    public GameObject explosionEffectPrefab;
 
     private float explosionRange;
 
@@ -59,7 +60,8 @@ public class Missile : Projectile
 
     private void SpawnExplosionParticleEffect()
     {
-        // -------------------------------------------------------------------<<<<<<
+        GameObject explosionEffect = Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
+        explosionEffect.GetComponent<ExplosionEffect>().setExplosionRange(explosionRange);
     }
 
     private void PlayExplosionSound()

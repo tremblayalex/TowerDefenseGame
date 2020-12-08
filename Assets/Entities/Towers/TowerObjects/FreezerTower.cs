@@ -2,6 +2,8 @@
 
 public class FreezerTower : ActivatedTower
 {
+    public GameObject freezeWavePrefab;
+
     private float freezeTime;
     private float slownessMultiplier;
 
@@ -19,6 +21,17 @@ public class FreezerTower : ActivatedTower
 
         FreezerTowerScriptableObject so = towerSettings.freezerTowerScriptableObjects[0];
         Initialize(so.towerSprite, so.range, so.fireRate, so.price, so.freezeTime, so.slownessMultiplier);        
+    }
+
+    public override void Upgrade()
+    {
+        if (upgradeIndex + 1 < towerSettings.freezerTowerScriptableObjects.Length)
+        {
+            upgradeIndex++;
+
+            FreezerTowerScriptableObject so = towerSettings.freezerTowerScriptableObjects[upgradeIndex];
+            Initialize(so.towerSprite, so.range, so.fireRate, so.price, so.freezeTime, so.slownessMultiplier);
+        }
     }
 
     public void setFreezeTime(float inFreezeTime)
@@ -77,6 +90,11 @@ public class FreezerTower : ActivatedTower
 
     private void ShootFreezingWave()
     {
-        // À faire amuse toe
+        GameObject newFreezeWaveObject = Instantiate(freezeWavePrefab, transform.position, Quaternion.identity);
+        FreezeWave newFreezeWave = newFreezeWaveObject.GetComponent<FreezeWave>();
+
+        newFreezeWave.setFreezeRange(range);
+        newFreezeWave.setFreezeTime(freezeTime);
+        newFreezeWave.setSlownessMultiplier(slownessMultiplier);
     }
 }

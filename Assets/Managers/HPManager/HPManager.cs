@@ -17,6 +17,7 @@ public class HPManager : MonoBehaviour
         life = startingLife;
 
         uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
+
         gameManager = Camera.main.GetComponent<GameManager>();
         uiManager.DisplayHP(life);
     }
@@ -28,8 +29,6 @@ public class HPManager : MonoBehaviour
         if (life <= 0)
         {
             life = 0;
-
-            print(life);
 
             uiManager.DisplayHP(life);
             gameManager.EndGame();

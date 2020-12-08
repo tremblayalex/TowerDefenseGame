@@ -21,6 +21,17 @@ public class MissileLauncherTower : RotationalTower
         Initialize(so.towerSprite, so.range, so.fireRate, so.price, so.damage, so.explosionRange);        
     }
 
+    public override void Upgrade()
+    {
+        if (upgradeIndex + 1 < towerSettings.missileLauncherTowerScriptableObjects.Length)
+        {
+            upgradeIndex++;
+
+            MissileLauncherTowerScriptableObject so = towerSettings.missileLauncherTowerScriptableObjects[upgradeIndex];
+            Initialize(so.towerSprite, so.range, so.fireRate, so.price, so.damage, so.explosionRange);
+        }
+    }
+
     public void setExplosionRange(float inExplosionRange)
     {
         explosionRange = inExplosionRange;
