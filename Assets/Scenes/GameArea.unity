@@ -4157,7 +4157,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1473464696}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2633761035988433853, guid: 5d4ba45eb322f5a49afb523f30c15414, type: 3}
+    - {fileID: 1621916957973138944, guid: 5d4ba45eb322f5a49afb523f30c15414, type: 3}
+    - {fileID: 5366578686853071938, guid: 5d4ba45eb322f5a49afb523f30c15414, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5d4ba45eb322f5a49afb523f30c15414, type: 3}
 --- !u!114 &982022136 stripped
 MonoBehaviour:
@@ -5478,16 +5481,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MoneyManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 4595369508319129979, guid: ff51133e33cae2a45ad8208451475f36,
-        type: 3}
-      propertyPath: money
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 4595369508319129979, guid: ff51133e33cae2a45ad8208451475f36,
-        type: 3}
-      propertyPath: startingMoney
-      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6186453643844232312, guid: ff51133e33cae2a45ad8208451475f36,
         type: 3}

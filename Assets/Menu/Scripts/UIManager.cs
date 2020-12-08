@@ -45,7 +45,6 @@ public class UIManager : MonoBehaviour
 
     public void DisplayHP(int hp)
     {
-        Debug.Log(hp);
         textHP.text = hp.ToString();
     }
 
