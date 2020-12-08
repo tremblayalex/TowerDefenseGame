@@ -15,6 +15,6 @@ MonoBehaviour:
   enemySprite: {fileID: 2868972381202366441, guid: 09402073fe28be84fb7b32b2569434e7,
     type: 3}
   hitPoints: 80
-  movementSpeed: 2
-  dropMoney: 20
-  dammageEndOfPath: 2
+  movementSpeed: 3
+  dropMoney: 80
+  dammageEndOfPath: 8

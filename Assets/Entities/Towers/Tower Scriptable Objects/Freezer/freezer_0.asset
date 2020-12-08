@@ -16,6 +16,6 @@ MonoBehaviour:
     type: 3}
   range: 3
   fireRate: 2
-  price: 100
-  freezeTime: 1
+  price: 50
+  freezeTime: 2
   slownessMultiplier: 0.5

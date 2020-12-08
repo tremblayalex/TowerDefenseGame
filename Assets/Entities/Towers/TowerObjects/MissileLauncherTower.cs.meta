@@ -3,7 +3,11 @@ guid: 7c589cf753e345b49802099769aee9ff
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - projectilePrefab: {instanceID: 0}
+  - soundEffect: {fileID: 11400000, guid: 46502e887c336434b94529cd5da1d913, type: 2}
+  - soundPlayer: {fileID: 549751835565541685, guid: e9a00d44fa33144499c6ddce0a340879,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

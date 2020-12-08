@@ -6,7 +6,7 @@ public class MissileLauncherTower : RotationalTower
 {
     private float explosionRange;
 
-    protected void Initialize(Sprite inSprite, float inRange, float inFireRate, float inPrice, int inDamage, float inExplosionRange)
+	protected void Initialize(Sprite inSprite, float inRange, float inFireRate, float inPrice, int inDamage, float inExplosionRange)
     {
         base.InitializeRotationalTower(inSprite, inRange, inFireRate, inPrice, inDamage);
 

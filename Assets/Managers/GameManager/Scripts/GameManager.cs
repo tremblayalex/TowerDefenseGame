@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     private GameObject pauseMessageInstantiation;
     private GameObject deathCanvasPrefabInstantiation;
 
+    private TowerManager towerManager;
+
     private enum GameState
     {
         Running,
@@ -33,6 +35,8 @@ public class GameManager : MonoBehaviour
     {
         pauseButton.image.sprite = pauseSprite;
         gameState = GameState.Running;
+
+        towerManager = GameObject.Find("TowerManager").GetComponent<TowerManager>();
     }
 
     void Update()
@@ -87,6 +91,7 @@ public class GameManager : MonoBehaviour
         pauseMessageInstantiation.layer = 5;
         pauseButton.image.sprite = playSprite;
         DisableAllTowerButtons();
+        towerManager.DisableTowerPurchaseMode();
 
         gameState = GameState.Paused;
     }
@@ -109,6 +114,7 @@ public class GameManager : MonoBehaviour
             deathCanvasPrefabInstantiation.layer = 5;
             pauseButton.image.sprite = playSprite;
             DisableAllTowerButtons();
+            towerManager.DisableTowerPurchaseMode();
 
             gameState = GameState.Ended;
         }    

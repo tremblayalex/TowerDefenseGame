@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySprite: {fileID: 7526281318054643600, guid: 09402073fe28be84fb7b32b2569434e7,
     type: 3}
-  hitPoints: 60
-  movementSpeed: 2
-  dropMoney: 15
-  dammageEndOfPath: 2
+  hitPoints: 40
+  movementSpeed: 4
+  dropMoney: 40
+  dammageEndOfPath: 4
