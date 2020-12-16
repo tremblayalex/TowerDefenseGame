@@ -6,9 +6,9 @@ using UnityEngine;
 
 public class MoneyManager : MonoBehaviour
 {
-    public int startingMoney = 300;
+    public long startingMoney = 300;
 
-    private int money;
+    private long money;
 
     private UIManager uiManager;
 
@@ -16,11 +16,11 @@ public class MoneyManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Minus))
         {
-            SpendMoney(100);
+            SpendMoney(1000000);
         }
         if (Input.GetKeyDown(KeyCode.Equals))
         {
-            AddMoney(100);
+            AddMoney(1000000);
         }
     }
 

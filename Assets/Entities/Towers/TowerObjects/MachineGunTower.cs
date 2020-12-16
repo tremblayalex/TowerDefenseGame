@@ -39,22 +39,16 @@ public class MachineGunTower : RotationalTower
     {
         if (upgradeIndex + 1 < towerSettings.machineGunTowerScriptableObjects.Length)
         {
-
-            print("UPGRADE MACHINE");
-            
-
             MachineGunTowerScriptableObject so = towerSettings.machineGunTowerScriptableObjects[upgradeIndex+1];
-            Debug.Log("Index: " + upgradeIndex);
-            Debug.Log("ScriptObject: " + towerSettings.machineGunTowerScriptableObjects.Length);
 
             MoneyManager moneyManager = FindObjectOfType<MoneyManager>();
             if (moneyManager.SpendMoney(so.price))
             {
                 upgradeIndex++;
                 Initialize(so.towerSprite, so.range, so.fireRate, so.price, so.damage);
-            }
-            
+            }     
         }
+        ShowInformationOnSelection();
     }
 
     public override int MoneyOnSelling()

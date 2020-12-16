@@ -15,6 +15,6 @@ MonoBehaviour:
   towerSprite: {fileID: 8623333193184404569, guid: e19425e2ae6721747a565f66d73681a9,
     type: 3}
   range: 5
-  fireRate: 0.5
+  fireRate: 0.75
   price: 400
   damage: 6

@@ -39,24 +39,15 @@ public class FreezerTower : ActivatedTower
 
     public override void Upgrade()
     {
-        print("-- Attempt Upgrade Freeze Tower---");
         if (upgradeIndex + 1 < towerSettings.freezerTowerScriptableObjects.Length)
         {
-            print("Upgrade Available");
-
             FreezerTowerScriptableObject so = towerSettings.freezerTowerScriptableObjects[upgradeIndex+1];
             MoneyManager moneyManager = FindObjectOfType<MoneyManager>();
             if (moneyManager.SpendMoney(so.price))
             {
-                print("Price money : " + so.price);
-                print("Present Upgrade Index : " +upgradeIndex);
                 Initialize(so.towerSprite, so.range, so.fireRate, so.price, so.freezeTime, so.slownessMultiplier);
                 upgradeIndex++;
             }
-        }
-        else
-        {
-            print("No more Upgrade");
         }
         ShowInformationOnSelection();
     }

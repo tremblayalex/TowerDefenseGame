@@ -88,7 +88,7 @@ public class UIManager : MonoBehaviour
         textHP.text = hp.ToString();
     }
 
-    public void DisplayMoney(int money)
+    public void DisplayMoney(long money)
     {
         textMoney.text = money.ToString();
     }

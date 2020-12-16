@@ -35,12 +35,9 @@ public class MissileLauncherTower : RotationalTower
     }
 
     public override void Upgrade()
-    {
-        print("UPGRADE MISSILE");
+    {        
         if (upgradeIndex + 1 < towerSettings.missileLauncherTowerScriptableObjects.Length)
         {
-            
-
             MissileLauncherTowerScriptableObject so = towerSettings.missileLauncherTowerScriptableObjects[upgradeIndex+1];
             MoneyManager moneyManager = FindObjectOfType<MoneyManager>();
             if (moneyManager.SpendMoney(so.price))
@@ -49,6 +46,7 @@ public class MissileLauncherTower : RotationalTower
                 upgradeIndex++;
             }
         }
+        ShowInformationOnSelection();
     }
 
     public override int MoneyOnSelling()
