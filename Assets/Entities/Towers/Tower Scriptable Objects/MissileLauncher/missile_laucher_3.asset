@@ -9,12 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 984ed7c328758494982b4c70c5d90035, type: 3}
-  m_Name: enemiesCarVariant5
+  m_Script: {fileID: 11500000, guid: 9d36a5f9050d48945bc267a7c8007ded, type: 3}
+  m_Name: missile_laucher_3
   m_EditorClassIdentifier: 
-  enemySprite: {fileID: -9131636682640464771, guid: 09402073fe28be84fb7b32b2569434e7,
+  towerSprite: {fileID: 7744821162820296903, guid: e19425e2ae6721747a565f66d73681a9,
     type: 3}
-  hitPoints: 20480
-  movementSpeed: 6
-  dropMoney: 20480
-  dammageEndOfPath: 2048
+  range: 13
+  fireRate: 2
+  price: 700
+  damage: 50
+  explosionRange: 2

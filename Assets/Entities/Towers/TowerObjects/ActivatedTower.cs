@@ -4,11 +4,14 @@ using UnityEngine;
 
 public abstract class ActivatedTower : Tower
 {
+    
+
     protected float fireRate;
     protected float price;
 
     protected float delayBeforeNextFire = 0f;
     protected int upgradeIndex;
+
 
     protected void InitializeActivatedTower(Sprite inSprite, float inRange, float inFireRate, float inPrice)
     {
@@ -16,15 +19,35 @@ public abstract class ActivatedTower : Tower
 
         fireRate = inFireRate;
         price = inPrice;
-        upgradeIndex = 0;
+        
     }
 
     protected void AwakeActivatedTower()
     {
         base.AwakeTower();
+        upgradeIndex = 0;
     }
 
     public abstract void Upgrade();
+    public abstract void ShowInformationOnSelection();
+
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    public void Sell()
+    {
+
+        MoneyManager moneyManager = GameObject.Find("MoneyManager").GetComponent<MoneyManager>();        
+        moneyManager.AddMoney(MoneyOnSelling());
+        print(MoneyOnSelling());
+
+    }
+
+    public abstract int MoneyOnSelling();
+    
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
     public void setFireRate(float inFireRate)
     {

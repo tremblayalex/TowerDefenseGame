@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -16,45 +17,66 @@ public class TowerManager : MonoBehaviour
     private int towerPurchaseSelectedIndex;
     private Vector3Int selectedTilePosition;
 
-    private List<GameObject> allPlacedTowers;
+    private List<GameObject> allPlacedTowers;   
+    private GameObject selectedTower;
     private GameObject shadowTower;
+
+    private UIManager uiManager;
+
+    bool outSideMap;
 
     private void Start()
     {
         towerPurchaseSelectedIndex = -1;
         allPlacedTowers = new List<GameObject>();
-
+        outSideMap = false;
         grid = GameObject.FindWithTag("WorldGrid").GetComponent<GridLayout>();
         tilemapRoad = GameObject.FindWithTag("Road").GetComponent<Tilemap>();
         tilemapNature = GameObject.FindWithTag("Nature").GetComponent<Tilemap>();
         spawnerTower = GameObject.Find("SpawnerTower").GetComponent<SpawnerTower>();
         moneyManager = GameObject.Find("MoneyManager").GetComponent<MoneyManager>();
+
+        uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
     }
 
     public void EnableTowerPurchaseMode(int towerIndex)
     {
+        //Debug.Log("Trying to buy : " + towerIndex.ToString());
         if (towerIndex >= 0 && towerIndex < towerScriptableObjects.Length)
         {
             towerPurchaseSelectedIndex = towerIndex;
         }
+        NoTowerSelected();
     }
 
+
     public void DisableTowerPurchaseMode()
-    {
+    {       
         towerPurchaseSelectedIndex = -1;
         DestroyPreviousShadowTower();
     }
 
+    public void NoTowerSelected()
+    {
+        if (selectedTower != null)
+        {
+            print("In NoTowerSelected");
+            selectedTower.GetComponent<Tower>().HideFireRange();
+            selectedTower = null;
+        }       
+        uiManager.HideShowTowerInformation(false);
+    }
+
     public void MouseHoverMap(Vector3Int tilePosition)
     {
-        if (towerPurchaseSelectedIndex != -1)
-        {
-            UpdateTileSelection(tilePosition);
-        }     
+        outSideMap = true;
+        UpdateTileSelectionToBuy(tilePosition);
+           
     }
 
     public void MouseLeaveMap()
     {
+        outSideMap = false;
         DestroyPreviousShadowTower();
     }
 
@@ -68,23 +90,70 @@ public class TowerManager : MonoBehaviour
             {
                 Vector3 actualTowerPosition = ConvertTilePositionToTowerPosition(selectedTilePosition);
                 allPlacedTowers.Add(spawnerTower.SpawnTower(actualTowerPosition, towerPurchaseSelectedIndex));
-            }       
+            }
+        }
+        else if (towerPurchaseSelectedIndex == -1)
+        {
+            if (outSideMap)
+            {
+                SelectATower();
+            }            
         }
     }
 
-    private void UpdateTileSelection(Vector3Int tilePosition)
+    private void SelectATower()
+    {
+        NoTowerSelected();
+        selectedTower = FindTowerSelected(selectedTilePosition);
+        if (selectedTower != null)
+        {            
+            print("Name tower selected : " + selectedTower.name);
+            ShowInformationAboutTheRightTower();
+
+            //UpgradeTheRightTowerType();
+            //SellTheRightTowerType();          
+        }
+        else
+        {
+            NoTowerSelected();
+        }
+    }
+    private void ShowInformationAboutTheRightTower()
+    {
+        uiManager.HideShowTowerInformation(true);
+        selectedTower.GetComponent<Tower>().DisplayFireRange();
+        selectedTower.GetComponent<ActivatedTower>().ShowInformationOnSelection();
+    }
+
+    public void UpgradeTheRightTower()
+    {
+        print("Upgrade Something");
+        selectedTower.GetComponent<ActivatedTower>().Upgrade();
+    }
+
+    public void SellTheRightTowerType()
+    {
+        selectedTower.GetComponent<ActivatedTower>().Sell();
+        allPlacedTowers.Remove(selectedTower);
+        Destroy(selectedTower);
+        NoTowerSelected();
+    }
+
+    private void UpdateTileSelectionToBuy(Vector3Int tilePosition)
     {
         if (tilePosition != selectedTilePosition)
         {
-            DestroyPreviousShadowTower();
-
-            if (CanPlaceTowerAtPosition(tilePosition))
+            if (towerPurchaseSelectedIndex != -1)
             {
-                DisplayShadowTower(tilePosition);
-            }
-
+                DestroyPreviousShadowTower();
+                if (CanPlaceTowerAtPosition(tilePosition))
+                {
+                    DisplayShadowTower(tilePosition);
+                }
+            }           
             selectedTilePosition = tilePosition;
         }
+       
     }
 
     private void DestroyPreviousShadowTower()
@@ -132,5 +201,22 @@ public class TowerManager : MonoBehaviour
         }
 
         return isTowerAtPosition;
+    }
+
+    private GameObject FindTowerSelected(Vector3Int position)
+    {
+        GameObject towerClicked = null;
+
+        foreach (GameObject tower in allPlacedTowers)
+        {
+            Vector3Int towerCellPositon = grid.WorldToCell(tower.transform.position);
+
+            if (towerCellPositon == position)
+            {
+                towerClicked = tower;
+            }
+        }
+
+        return towerClicked;
     }
 }

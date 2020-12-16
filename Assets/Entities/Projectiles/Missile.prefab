@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e61c5463966955d4fa7db2e1c820f8cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 15
   fireSound: {fileID: 0}
   explosionSound: {fileID: 0}
   explosionEffectPrefab: {fileID: 7904255432712618203, guid: 79194422ff28004499a6cd7dd410e85b,

@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 984ed7c328758494982b4c70c5d90035, type: 3}
-  m_Name: enemiesCarVariant5
+  m_Script: {fileID: 11500000, guid: 51809378bb7fa37468742cb4f8af751c, type: 3}
+  m_Name: machine_gun_4
   m_EditorClassIdentifier: 
-  enemySprite: {fileID: -9131636682640464771, guid: 09402073fe28be84fb7b32b2569434e7,
+  towerSprite: {fileID: 7910356227285057626, guid: e19425e2ae6721747a565f66d73681a9,
     type: 3}
-  hitPoints: 20480
-  movementSpeed: 6
-  dropMoney: 20480
-  dammageEndOfPath: 2048
+  range: 6
+  fireRate: 0.5
+  price: 800
+  damage: 10

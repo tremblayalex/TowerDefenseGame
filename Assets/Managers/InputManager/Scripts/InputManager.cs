@@ -84,7 +84,7 @@ public class InputManager : MonoBehaviour
             if (!keyDownEscape)
             {
                 towerManager.DisableTowerPurchaseMode();
-
+                towerManager.NoTowerSelected();
                 keyDownEscape = true;
             }       
         }

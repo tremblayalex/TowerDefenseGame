@@ -9,6 +9,7 @@ public abstract class Tower : MonoBehaviour
 
     private GameObject towerRangeGameObject;
     private TowerRange towerRange;
+    protected UIManager uiManager;
 
     protected float range;
 
@@ -20,6 +21,7 @@ public abstract class Tower : MonoBehaviour
 
     protected void AwakeTower()
     {
+        uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
         towerSettings = GameObject.Find("TowerSettings").GetComponent<TowerSettings>();
         InitializeTowerRange();
     }

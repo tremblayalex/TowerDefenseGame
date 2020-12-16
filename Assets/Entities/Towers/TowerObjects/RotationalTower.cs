@@ -7,6 +7,7 @@ public abstract class RotationalTower : ActivatedTower
     public GameObject projectilePrefab;
 
     protected int damage;
+   
 
     protected void InitializeRotationalTower(Sprite inSprite, float inRange, float inFireRate, float inPrice, int inDamage)
     {
@@ -22,6 +23,10 @@ public abstract class RotationalTower : ActivatedTower
 
     public override abstract void Upgrade();
 
+    public override abstract void ShowInformationOnSelection();
+
+    public override abstract int MoneyOnSelling();
+
     public void setDamage(int inDamage)
     {
         damage = inDamage;
@@ -31,6 +36,8 @@ public abstract class RotationalTower : ActivatedTower
     {
         return damage;
     }
+
+    
 
     void Update()
     {

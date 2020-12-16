@@ -18,4 +18,4 @@ MonoBehaviour:
   fireRate: 2
   price: 50
   freezeTime: 2
-  slownessMultiplier: 0.5
+  slownessMultiplier: 0.7

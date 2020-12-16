@@ -6,7 +6,7 @@ public class MissileLauncherTower : RotationalTower
 {
     private float explosionRange;
 
-	protected void Initialize(Sprite inSprite, float inRange, float inFireRate, float inPrice, int inDamage, float inExplosionRange)
+    protected void Initialize(Sprite inSprite, float inRange, float inFireRate, float inPrice, int inDamage, float inExplosionRange)
     {
         base.InitializeRotationalTower(inSprite, inRange, inFireRate, inPrice, inDamage);
 
@@ -21,16 +21,46 @@ public class MissileLauncherTower : RotationalTower
         Initialize(so.towerSprite, so.range, so.fireRate, so.price, so.damage, so.explosionRange);        
     }
 
-    public override void Upgrade()
+    public override void ShowInformationOnSelection()
     {
         if (upgradeIndex + 1 < towerSettings.missileLauncherTowerScriptableObjects.Length)
         {
-            upgradeIndex++;
-
-            MissileLauncherTowerScriptableObject so = towerSettings.missileLauncherTowerScriptableObjects[upgradeIndex];
-            Initialize(so.towerSprite, so.range, so.fireRate, so.price, so.damage, so.explosionRange);
+            MissileLauncherTowerScriptableObject so = towerSettings.missileLauncherTowerScriptableObjects[upgradeIndex + 1];
+            uiManager.DisplayInformationsTowerSelected(so.price, MoneyOnSelling());
+        }
+        else
+        {
+            uiManager.DisplayInformationsTowerSelected(MoneyOnSelling());
         }
     }
+
+    public override void Upgrade()
+    {
+        print("UPGRADE MISSILE");
+        if (upgradeIndex + 1 < towerSettings.missileLauncherTowerScriptableObjects.Length)
+        {
+            
+
+            MissileLauncherTowerScriptableObject so = towerSettings.missileLauncherTowerScriptableObjects[upgradeIndex+1];
+            MoneyManager moneyManager = FindObjectOfType<MoneyManager>();
+            if (moneyManager.SpendMoney(so.price))
+            {
+                Initialize(so.towerSprite, so.range, so.fireRate, so.price, so.damage, so.explosionRange);
+                upgradeIndex++;
+            }
+        }
+    }
+
+    public override int MoneyOnSelling()
+    {
+        int MoneyOnSelling = 0;
+        for (int i = upgradeIndex; i >= 0; i--)
+        {
+            MoneyOnSelling += towerSettings.missileLauncherTowerScriptableObjects[i].price;
+        }
+        return MoneyOnSelling / 2;
+    }
+
 
     public void setExplosionRange(float inExplosionRange)
     {

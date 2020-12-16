@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 public class FreezerTower : ActivatedTower
 {
@@ -23,16 +24,52 @@ public class FreezerTower : ActivatedTower
         Initialize(so.towerSprite, so.range, so.fireRate, so.price, so.freezeTime, so.slownessMultiplier);        
     }
 
-    public override void Upgrade()
+    public override void ShowInformationOnSelection()
     {
         if (upgradeIndex + 1 < towerSettings.freezerTowerScriptableObjects.Length)
         {
-            upgradeIndex++;
-
-            FreezerTowerScriptableObject so = towerSettings.freezerTowerScriptableObjects[upgradeIndex];
-            Initialize(so.towerSprite, so.range, so.fireRate, so.price, so.freezeTime, so.slownessMultiplier);
+            FreezerTowerScriptableObject so = towerSettings.freezerTowerScriptableObjects[upgradeIndex+1];
+            uiManager.DisplayInformationsTowerSelected(so.price, MoneyOnSelling());
+        }
+        else
+        {
+            uiManager.DisplayInformationsTowerSelected(MoneyOnSelling());
         }
     }
+
+    public override void Upgrade()
+    {
+        print("-- Attempt Upgrade Freeze Tower---");
+        if (upgradeIndex + 1 < towerSettings.freezerTowerScriptableObjects.Length)
+        {
+            print("Upgrade Available");
+
+            FreezerTowerScriptableObject so = towerSettings.freezerTowerScriptableObjects[upgradeIndex+1];
+            MoneyManager moneyManager = FindObjectOfType<MoneyManager>();
+            if (moneyManager.SpendMoney(so.price))
+            {
+                print("Price money : " + so.price);
+                print("Present Upgrade Index : " +upgradeIndex);
+                Initialize(so.towerSprite, so.range, so.fireRate, so.price, so.freezeTime, so.slownessMultiplier);
+                upgradeIndex++;
+            }
+        }
+        else
+        {
+            print("No more Upgrade");
+        }
+        ShowInformationOnSelection();
+    }
+    public override int MoneyOnSelling()
+    {
+        int MoneyOnSelling = 0;
+        for (int i = upgradeIndex; i >= 0; i--)
+        {
+            MoneyOnSelling += towerSettings.freezerTowerScriptableObjects[i].price;
+        }
+        return MoneyOnSelling / 2;
+    }
+
 
     public void setFreezeTime(float inFreezeTime)
     {
