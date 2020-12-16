@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Ouzinem\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Ouzinem\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_TowerDefenseGame.-1736880862.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Ouzinem\Desktop\TowerDefenseGame" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Entities" t="Include">
+          <e p="Bullet" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="Bullet.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Enemies" t="Include">
+            <e p="DeathEffect" t="Include">
+              <e p="changeShaderColor.cs" t="Include" />
+              <e p="DestroyAfterEffect.cs" t="Include" />
+              <e p="ShaderExplosion.shader" t="Include" />
+            </e>
+            <e p="Scripts" t="Include">
+              <e p="changeColorShader.cs" t="Include" />
+              <e p="Enemy.cs" t="Include" />
+              <e p="EnemyScriptableObject.cs" t="Include" />
+              <e p="Spawner.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Towers" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="SpawnerTower.cs" t="Include" />
+              <e p="Tower.cs" t="Include" />
+              <e p="TowerManager.cs" t="Include" />
+              <e p="TowerRange.cs" t="Include" />
+              <e p="TowerScriptableObject.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Managers" t="Include">
+          <e p="GameManager" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="GameManager.cs" t="Include" />
+            </e>
+          </e>
+          <e p="HPManager" t="Include">
+            <e p="HPManager.cs" t="Include" />
+          </e>
+          <e p="InputManager" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="InputManager.cs" t="Include" />
+            </e>
+          </e>
+          <e p="MoneyManager" t="Include">
+            <e p="MoneyManager.cs" t="Include" />
+          </e>
+          <e p="SoundPlayer" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="AudioSoundEffect.cs" t="Include" />
+              <e p="SoundPlayer.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Menu" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="UIManager.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Samples" t="Include">
+          <e p="2D Pixel Perfect" t="Include">
+            <e p="2.0.4" t="Include">
+              <e p="Sample Scenes and Extras" t="Include">
+                <e p="Extras" t="Include">
+                  <e p="Custom Canvas Scaler" t="Include">
+                    <e p="CustomCanvasScaler.cs" t="Include" />
+                  </e>
+                </e>
+                <e p="Scenes" t="Include">
+                  <e p="Fonts" t="Include">
+                    <e p="LICENSE.txt" t="Include" />
+                  </e>
+                  <e p="RoboHero" t="Include">
+                    <e p="Scripts" t="Include">
+                      <e p="Hero.cs" t="Include" />
+                    </e>
+                  </e>
+                  <e p="Rule Tiles" t="Include">
+                    <e p="Scripts" t="Include">
+                      <e p="Editor" t="Include">
+                        <e p="RuleTileEditor.cs" t="Include" />
+                        <e p="Unity.2D.PixelPerfect.Samples.Editor.asmdef" t="Include" />
+                      </e>
+                      <e p="RuleTile.cs" t="Include" />
+                    </e>
+                  </e>
+                  <e p="Scripts" t="Include">
+                    <e p="BasicCameraFollow.cs" t="Include" />
+                    <e p="CameraManager.cs" t="Include" />
+                    <e p="HeroMover.cs" t="Include" />
+                  </e>
+                </e>
+                <e p="Unity.2D.PixelPerfect.Samples.asmdef" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
+        <e p="TextMesh Pro" t="Include">
+          <e p="Fonts" t="Include">
+            <e p="LiberationSans - OFL.txt" t="Include" />
+          </e>
+          <e p="Resources" t="Include">
+            <e p="LineBreaking Following Characters.txt" t="Include" />
+            <e p="LineBreaking Leading Characters.txt" t="Include" />
+            <e p="Shaders" t="Include">
+              <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
+              <e p="TMP_Bitmap-Mobile.shader" t="Include" />
+              <e p="TMP_Bitmap.shader" t="Include" />
+              <e p="TMP_SDF Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface.shader" t="Include" />
+              <e p="TMP_SDF.shader" t="Include" />
+              <e p="TMP_Sprite.shader" t="Include" />
+              <e p="TMPro.cginc" t="Include" />
+              <e p="TMPro_Properties.cginc" t="Include" />
+              <e p="TMPro_Surface.cginc" t="Include" />
+            </e>
+          </e>
+          <e p="Sprites" t="Include">
+            <e p="EmojiOne Attribution.txt" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+      <e p="TowerDefenseGame.sln" t="IncludeFlat" />
+      <e p="Unity.2D.PixelPerfect.Samples.csproj" t="IncludeRecursive" />
+      <e p="Unity.2D.PixelPerfect.Samples.Editor.csproj" t="IncludeRecursive" />
+    </e>
+  </component>
+</project>
