@@ -20,8 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52c31660-555b-4ccc-bca7-3f2181682504" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Entities/Bullet/Bullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Entities/Bullet/Bullet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameArea.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameArea.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TowerDefenseGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TowerDefenseGame/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Entities/Enemies/DeathEffect/changeShaderColor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Entities/Enemies/DeathEffect/changeShaderColor.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +81,7 @@
       <option name="presentableId" value="Default" />
       <updated>1608065893527</updated>
       <workItem from="1608065906079" duration="3005000" />
-      <workItem from="1608128477304" duration="9993000" />
+      <workItem from="1608128477304" duration="11303000" />
     </task>
     <servers />
   </component>
