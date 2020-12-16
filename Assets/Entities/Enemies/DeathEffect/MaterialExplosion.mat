@@ -24,8 +24,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Interpolation: 0.432
-    - _Speed: 15
+    - _Interpolation: 0.739
+    - _Speed: 52.7
     - _interpolation: 1
     m_Colors:
     - _ColorStart: {r: 0.95676553, g: 0.9622642, b: 0.049928807, a: 1}
