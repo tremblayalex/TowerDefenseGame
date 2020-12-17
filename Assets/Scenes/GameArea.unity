@@ -5354,10 +5354,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1473464696, guid: 5df3a8d06bc0fae4dac3dd4430a92221, type: 3}
-      propertyPath: towerPurchaseButtons.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1473464696, guid: 5df3a8d06bc0fae4dac3dd4430a92221, type: 3}
       propertyPath: pauseButton
       value: 
       objectReference: {fileID: 86065674}

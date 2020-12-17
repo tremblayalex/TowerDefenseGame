@@ -6,15 +6,9 @@ public class SpawnerTower : MonoBehaviour
 {
     private TowerSettings towerSettings;
 
-    // Test
-    public GameObject effectPrefab;
-
     void Start()
     {
         towerSettings = GameObject.Find("TowerSettings").GetComponent<TowerSettings>();
-        
-        // Test
-        Instantiate(effectPrefab, new Vector3(-5, -5, 0), Quaternion.identity);
     }
 
     public GameObject SpawnShadowTower(Vector3 position, int towerIndex)

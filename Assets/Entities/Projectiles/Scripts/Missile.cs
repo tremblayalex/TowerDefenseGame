@@ -11,7 +11,7 @@ public class Missile : Projectile
 
     public void setExplosionRange(float inExplosionRange)
     {
-        explosionRange = inExplosionRange;
+        explosionRange = inExplosionRange * 2;
     }
 
     protected override void MoveTowardsEnemy()
@@ -61,7 +61,7 @@ public class Missile : Projectile
     private void SpawnExplosionParticleEffect()
     {
         GameObject explosionEffect = Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
-        explosionEffect.GetComponent<ExplosionEffect>().setExplosionRange(explosionRange);
+        explosionEffect.GetComponentInChildren<ChangeShaderColor>().setExplosionRange(explosionRange);
     }
 
     private void PlayExplosionSound()

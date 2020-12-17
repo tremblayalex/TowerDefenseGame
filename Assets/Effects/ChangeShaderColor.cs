@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class ChangeShaderColor : MonoBehaviour
 {
-    Material material;
+    private Material material;
     private float interpolation = 0;
     private ParticleSystem particleSystem;
-    private float explosionRadius = 10f;
+    private float explosionRange = 1f;
+
+    public void setExplosionRange(float inExplosionRange)
+    {
+        explosionRange = inExplosionRange * 2;
+    }
 
     void Start()
     {
@@ -16,12 +21,12 @@ public class ChangeShaderColor : MonoBehaviour
        
         var main = particleSystem.main;
         //print(main.startSize);
-        main.startSize = explosionRadius;
+        main.startSize = explosionRange;
     }
 
     void Update()
     {
-        interpolation = interpolation + Time.deltaTime * 0.8f;
+        interpolation = interpolation + Time.deltaTime * 2f;
         material.SetFloat("_Interpolation", interpolation);
     }
 }
