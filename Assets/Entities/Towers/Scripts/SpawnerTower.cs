@@ -6,21 +6,15 @@ public class SpawnerTower : MonoBehaviour
 {
     private TowerSettings towerSettings;
 
+    // Test
+    public GameObject effectPrefab;
+
     void Start()
     {
         towerSettings = GameObject.Find("TowerSettings").GetComponent<TowerSettings>();
-
-        //GameObject newTower = SpawnMachineGunTower(new Vector3(0, 0, 0));
-        //newTower.GetComponent<MachineGunTower>().DisplayFireRange();
-        //newTower.GetComponent<MachineGunTower>().Upgrade();
-
-        //GameObject newTower = SpawnMissileLauncherTower(new Vector3(0, 0, 0));
-        //newTower.GetComponent<MissileLauncherTower>().DisplayFireRange();
-        //newTower.GetComponent<MissileLauncherTower>().Upgrade();
-
-        //GameObject newTower = SpawnFreezerTower(new Vector3(0, 0, 0));
-        //newTower.GetComponent<FreezerTower>().DisplayFireRange();
-        //newTower.GetComponent<FreezerTower>().Upgrade();
+        
+        // Test
+        Instantiate(effectPrefab, new Vector3(-5, -5, 0), Quaternion.identity);
     }
 
     public GameObject SpawnShadowTower(Vector3 position, int towerIndex)

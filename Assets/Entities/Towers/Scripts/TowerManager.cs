@@ -60,7 +60,6 @@ public class TowerManager : MonoBehaviour
     {
         if (selectedTower != null)
         {
-            print("In NoTowerSelected");
             selectedTower.GetComponent<Tower>().HideFireRange();
             selectedTower = null;
         }       
@@ -107,7 +106,6 @@ public class TowerManager : MonoBehaviour
         selectedTower = FindTowerSelected(selectedTilePosition);
         if (selectedTower != null)
         {            
-            print("Name tower selected : " + selectedTower.name);
             ShowInformationAboutTheRightTower();
 
             //UpgradeTheRightTowerType();
@@ -127,7 +125,6 @@ public class TowerManager : MonoBehaviour
 
     public void UpgradeTheRightTower()
     {
-        print("Upgrade Something");
         selectedTower.GetComponent<ActivatedTower>().Upgrade();
     }
 

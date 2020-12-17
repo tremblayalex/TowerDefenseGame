@@ -27,7 +27,7 @@ public class UIManager : MonoBehaviour
 
         selectionPanel = GameObject.Find("SelectedOption").GetComponent<CanvasGroup>();
         upgradePanel = GameObject.Find("UpgradeOption").GetComponent<CanvasGroup>();
-        print( upgradePanel.name ) ;
+
         MachineGunTowerScriptableObject mgso = towerSettings.machineGunTowerScriptableObjects[0];
         MissileLauncherTowerScriptableObject mlso = towerSettings.missileLauncherTowerScriptableObjects[0];
         FreezerTowerScriptableObject fso = towerSettings.freezerTowerScriptableObjects[0];
