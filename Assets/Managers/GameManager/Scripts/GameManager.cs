@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    protected SoundPlayer soundPlayer;
+    public AudioSoundEffect ThemeSongSound;
+
     private static readonly int gameAreaSceneIndex = 1;
 
     public Button pauseButton;
@@ -13,6 +16,7 @@ public class GameManager : MonoBehaviour
     public Sprite playSprite;
 
     public Button[] towerPurchaseButtons;
+    public Button[] towerOptionButtons;
 
     public GameObject pauseMessagePrefab;
     public GameObject deathCanvasPrefab;
@@ -37,6 +41,7 @@ public class GameManager : MonoBehaviour
         gameState = GameState.Running;
 
         towerManager = GameObject.Find("TowerManager").GetComponent<TowerManager>();
+        PlayThemeSongSound();
     }
 
     void Update()
@@ -126,6 +131,10 @@ public class GameManager : MonoBehaviour
         {
             button.interactable = true;
         }
+        foreach (Button button in towerOptionButtons)
+        {
+            button.interactable = true;
+        }
     }
 
     private void DisableAllTowerButtons()
@@ -134,5 +143,14 @@ public class GameManager : MonoBehaviour
         {
             button.interactable = false;
         }
+        foreach (Button button in towerOptionButtons)
+        {
+            button.interactable = false;
+        }
+    }
+    private void PlayThemeSongSound()
+    {
+        soundPlayer = FindObjectOfType<SoundPlayer>();
+        soundPlayer.PlaySound(ThemeSongSound);
     }
 }

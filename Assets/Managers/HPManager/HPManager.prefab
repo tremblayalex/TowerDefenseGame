@@ -43,4 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfcacdc0535031c4facf102136dbca14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damagedSound: {fileID: 11400000, guid: 64d01bb116d270c488a10aa36113b8a6, type: 2}
   startingLife: 20

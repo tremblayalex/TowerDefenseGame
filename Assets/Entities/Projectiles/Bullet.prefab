@@ -94,5 +94,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd34c2e90e28104ab7957078b7cee6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
-  fireSound: {fileID: 0}
+  speed: 100
+  fireSound: {fileID: 11400000, guid: 46502e887c336434b94529cd5da1d913, type: 2}

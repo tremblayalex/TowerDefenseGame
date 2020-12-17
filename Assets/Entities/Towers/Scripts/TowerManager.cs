@@ -41,7 +41,6 @@ public class TowerManager : MonoBehaviour
 
     public void EnableTowerPurchaseMode(int towerIndex)
     {
-        //Debug.Log("Trying to buy : " + towerIndex.ToString());
         if (towerIndex >= 0 && towerIndex < towerScriptableObjects.Length)
         {
             towerPurchaseSelectedIndex = towerIndex;
@@ -70,7 +69,6 @@ public class TowerManager : MonoBehaviour
     {
         outSideMap = true;
         UpdateTileSelectionToBuy(tilePosition);
-           
     }
 
     public void MouseLeaveMap()
@@ -89,6 +87,7 @@ public class TowerManager : MonoBehaviour
             {
                 Vector3 actualTowerPosition = ConvertTilePositionToTowerPosition(selectedTilePosition);
                 allPlacedTowers.Add(spawnerTower.SpawnTower(actualTowerPosition, towerPurchaseSelectedIndex));
+                DisableTowerPurchaseMode();
             }
         }
         else if (towerPurchaseSelectedIndex == -1)
@@ -107,9 +106,6 @@ public class TowerManager : MonoBehaviour
         if (selectedTower != null)
         {            
             ShowInformationAboutTheRightTower();
-
-            //UpgradeTheRightTowerType();
-            //SellTheRightTowerType();          
         }
         else
         {

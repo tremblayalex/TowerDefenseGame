@@ -94,5 +94,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a965a89f64a6dc7459ca0aaa5bf93c27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  freezeSound: {fileID: 11400000, guid: 5efb9ace47d8c8d47b89b2298390f494, type: 2}
   animationSpeed: 10
   animationFadeDuration: 0.25

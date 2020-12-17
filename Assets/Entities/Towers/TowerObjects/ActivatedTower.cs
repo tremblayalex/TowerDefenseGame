@@ -40,8 +40,6 @@ public abstract class ActivatedTower : Tower
 
         MoneyManager moneyManager = GameObject.Find("MoneyManager").GetComponent<MoneyManager>();        
         moneyManager.AddMoney(MoneyOnSelling());
-        print(MoneyOnSelling());
-
     }
 
     public abstract int MoneyOnSelling();

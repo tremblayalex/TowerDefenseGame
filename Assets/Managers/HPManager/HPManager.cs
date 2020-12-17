@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class HPManager : MonoBehaviour
 {
+    protected SoundPlayer soundPlayer;
+    public AudioSoundEffect damagedSound;
+
     public int startingLife = 10;
     
     private int life;
@@ -37,6 +40,11 @@ public class HPManager : MonoBehaviour
         {
             uiManager.DisplayHP(life);
         }
-        
+        PlayDamagedSound();
+    }
+    private void PlayDamagedSound()
+    {
+        soundPlayer = FindObjectOfType<SoundPlayer>();
+        soundPlayer.PlaySound(damagedSound);
     }
 }

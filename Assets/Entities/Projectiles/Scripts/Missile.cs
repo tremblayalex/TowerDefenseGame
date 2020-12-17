@@ -69,6 +69,4 @@ public class Missile : Projectile
         soundPlayer = FindObjectOfType<SoundPlayer>();
         soundPlayer.PlaySound(explosionSound);
     }
-
-
 }

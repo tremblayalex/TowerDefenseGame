@@ -6,7 +6,7 @@ public class ChangeShaderColor : MonoBehaviour
 {
     private Material material;
     private float interpolation = 0;
-    private ParticleSystem particleSystem;
+    private ParticleSystem theParticleSystem;
     private float explosionRange = 1f;
 
     public void setExplosionRange(float inExplosionRange)
@@ -17,10 +17,9 @@ public class ChangeShaderColor : MonoBehaviour
     void Start()
     {
         material = GetComponent<ParticleSystemRenderer>().materials[0];
-        particleSystem = GetComponent<ParticleSystem>();
+        theParticleSystem = GetComponent<ParticleSystem>();
        
-        var main = particleSystem.main;
-        //print(main.startSize);
+        var main = theParticleSystem.main;
         main.startSize = explosionRange;
     }
 

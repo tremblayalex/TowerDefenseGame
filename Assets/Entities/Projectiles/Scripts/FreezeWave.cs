@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class FreezeWave : MonoBehaviour
 {
+    protected SoundPlayer soundPlayer;
+    public AudioSoundEffect freezeSound;
+
     public float animationSpeed;
     public float animationFadeDuration;
 
@@ -40,6 +43,7 @@ public class FreezeWave : MonoBehaviour
 
         FreezeAllNearbyEnemies();
         ChangeCircleRadius(animationRadius);
+        PlayFreezeSound();
     }
 
     
@@ -98,4 +102,9 @@ public class FreezeWave : MonoBehaviour
         }
     }
 
+    private void PlayFreezeSound()
+    {
+        soundPlayer = FindObjectOfType<SoundPlayer>();
+        soundPlayer.PlaySound(freezeSound);
+    }
 }

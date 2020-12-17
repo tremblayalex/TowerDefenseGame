@@ -30,9 +30,8 @@ public abstract class Projectile : MonoBehaviour
 
     private void PlayFireSound()
     {
-        //soundPlayer.PlaySound(fireSound); // -------------------------------------------------------------------<<<<<<
-        //fireSound = gameObject.GetComponent<AudioSoundEffect>();
-        //soundPlayer.PlaySound(fireSound);
+        soundPlayer = FindObjectOfType<SoundPlayer>();
+        soundPlayer.PlaySound(fireSound);
     }
 
     void Update()
@@ -59,7 +58,6 @@ public abstract class Projectile : MonoBehaviour
 
     protected void TranslateTowardsEnemy()
     {
-        //Vector3 newPosition = Vector3.MoveTowards(transform.position, targetEnemy.transform.position, speed * Time.deltaTime);
         Vector3 newPosition = Vector3.MoveTowards(transform.position, targetEnemy.transform.position, 6 * Time.deltaTime);
         transform.position = newPosition;
     }

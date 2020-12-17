@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class MoneyManager : MonoBehaviour
 {
+    protected SoundPlayer soundPlayer;
+    public AudioSoundEffect moneySound;
+
     public long startingMoney = 300;
 
     private long money;
@@ -42,6 +45,7 @@ public class MoneyManager : MonoBehaviour
             successfullySpentMoney = true;
 
             uiManager.DisplayMoney(money);
+            PlayMoneySound();
         }
 
         if (!successfullySpentMoney)
@@ -57,5 +61,12 @@ public class MoneyManager : MonoBehaviour
         money += amount;
 
         uiManager.DisplayMoney(money);
+        //PlayMoneySound();
+    }
+
+    private void PlayMoneySound()
+    {
+        soundPlayer = FindObjectOfType<SoundPlayer>();
+        soundPlayer.PlaySound(moneySound);
     }
 }
