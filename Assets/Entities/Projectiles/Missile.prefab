@@ -96,6 +96,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   fireSound: {fileID: 0}
-  explosionSound: {fileID: 0}
+  explosionSound: {fileID: 11400000, guid: 96d5358eb33913940ab953fca9eb449f, type: 2}
   explosionEffectPrefab: {fileID: 6630417444083381055, guid: b8faacc12f244884eb0caedc67e2efcc,
     type: 3}

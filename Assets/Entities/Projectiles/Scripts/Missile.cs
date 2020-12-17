@@ -66,9 +66,8 @@ public class Missile : Projectile
 
     private void PlayExplosionSound()
     {
-        //explosionSound = gameObject.GetComponent<AudioSoundEffect>();
-        //soundPlayer.PlaySound(explosionSound);
-        //soundPlayer.PlaySound(explosionSound); // -------------------------------------------------------------------<<<<<<
+        soundPlayer = FindObjectOfType<SoundPlayer>();
+        soundPlayer.PlaySound(explosionSound);
     }
 
 
