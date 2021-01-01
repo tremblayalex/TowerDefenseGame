@@ -4112,7 +4112,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1275864864, guid: 5d4ba45eb322f5a49afb523f30c15414, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1.7
+      value: 1.699997
       objectReference: {fileID: 0}
     - target: {fileID: 1275864864, guid: 5d4ba45eb322f5a49afb523f30c15414, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4160,7 +4160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1536643006, guid: 5d4ba45eb322f5a49afb523f30c15414, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.35155
+      value: 0.35154915
       objectReference: {fileID: 0}
     - target: {fileID: 1536643006, guid: 5d4ba45eb322f5a49afb523f30c15414, type: 3}
       propertyPath: m_SizeDelta.y
@@ -4168,7 +4168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1536643006, guid: 5d4ba45eb322f5a49afb523f30c15414, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.90807
+      value: -0.9080696
       objectReference: {fileID: 0}
     - target: {fileID: 1536643007, guid: 5d4ba45eb322f5a49afb523f30c15414, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4395,6 +4395,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UpgradeButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 3732702902595003002, guid: 5d4ba45eb322f5a49afb523f30c15414,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -2.3037949
       objectReference: {fileID: 0}
     - target: {fileID: 7366244631600250627, guid: 5d4ba45eb322f5a49afb523f30c15414,
         type: 3}
@@ -5581,6 +5586,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 549751835565541682, guid: e9a00d44fa33144499c6ddce0a340879,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.242
+      objectReference: {fileID: 0}
     - target: {fileID: 549751835565541684, guid: e9a00d44fa33144499c6ddce0a340879,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5635,6 +5645,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 549751835565541685, guid: e9a00d44fa33144499c6ddce0a340879,
+        type: 3}
+      propertyPath: maximumSound
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 549751835565541687, guid: e9a00d44fa33144499c6ddce0a340879,
         type: 3}

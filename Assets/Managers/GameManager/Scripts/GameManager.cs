@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
         gameState = GameState.Running;
 
         towerManager = GameObject.Find("TowerManager").GetComponent<TowerManager>();
-        PlayThemeSongSound();
+        //PlayThemeSongSound(); 
     }
 
     void Update()
