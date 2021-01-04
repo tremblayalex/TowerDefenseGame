@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 984ed7c328758494982b4c70c5d90035, type: 3}
   m_Name: enemiesCarVariant6
   m_EditorClassIdentifier: 
-  enemySprite: {fileID: 2108196603701348639, guid: 09402073fe28be84fb7b32b2569434e7,
+  enemySprite: {fileID: -2720637867290463692, guid: 09402073fe28be84fb7b32b2569434e7,
     type: 3}
-  hitPoints: 200
-  movementSpeed: 11
-  dropMoney: 200
-  dammageEndOfPath: 7
+  hitPoints: 2500
+  movementSpeed: 8
+  dropMoney: 15
+  dammageEndOfPath: 3

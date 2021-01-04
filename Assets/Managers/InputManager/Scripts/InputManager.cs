@@ -22,6 +22,8 @@ public class InputManager : MonoBehaviour
     bool keyDown2 = false;
     bool keyDown3 = false;
 
+    bool keyDownQ = false;
+    bool keyDownW = false;
     void Start()
     {
         towerManager = GameObject.Find("TowerManager").GetComponent<TowerManager>();
@@ -36,7 +38,7 @@ public class InputManager : MonoBehaviour
         CheckKeyDown();
     }
 
-    private void CheckMouseHover()
+    public void CheckMouseHover()
     {
         Vector3Int cellPosition = grid.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition));
 
@@ -75,6 +77,9 @@ public class InputManager : MonoBehaviour
         CheckKeyDown1();
         CheckKeyDown2();
         CheckKeyDown3();
+
+        CheckKeyDownQ();
+        CheckKeyDownW();
     }
 
     private void CheckKeyDownEscape()
@@ -101,7 +106,6 @@ public class InputManager : MonoBehaviour
             if (!keyDown1)
             {
                 towerManager.EnableTowerPurchaseMode(0);
-
                 keyDown1 = true;
             }
         }
@@ -142,6 +146,40 @@ public class InputManager : MonoBehaviour
         else
         {
             keyDown3 = false;
+        }
+    }
+
+    private void CheckKeyDownQ()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (!keyDownQ)
+            {
+                towerManager.UpgradeTheRightTower();
+
+                keyDownQ = true;
+            }
+        }
+        else
+        {
+            keyDownQ = false;
+        }
+    }
+
+    private void CheckKeyDownW()
+    {
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            if (!keyDownW)
+            {
+                towerManager.SellTheRightTowerType();
+
+                keyDownW = true;
+            }
+        }
+        else
+        {
+            keyDownW = false;
         }
     }
 }

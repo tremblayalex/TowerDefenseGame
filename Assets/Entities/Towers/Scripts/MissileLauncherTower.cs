@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class MissileLauncherTower : RotationalTower
@@ -56,7 +58,7 @@ public class MissileLauncherTower : RotationalTower
         {
             MoneyOnSelling += towerSettings.missileLauncherTowerScriptableObjects[i].price;
         }
-        return MoneyOnSelling / 2;
+        return Convert.ToInt32(MoneyOnSelling * MoneyPorcentageOnSell);
     }
 
 

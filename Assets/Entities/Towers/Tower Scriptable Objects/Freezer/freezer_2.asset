@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerSprite: {fileID: 396448903893879920, guid: e19425e2ae6721747a565f66d73681a9,
     type: 3}
-  range: 3.83
+  range: 3.6
   fireRate: 2
-  price: 100
-  freezeTime: 2
-  slownessMultiplier: 0.4
+  price: 300
+  freezeTime: 1
+  slownessMultiplier: 0.5

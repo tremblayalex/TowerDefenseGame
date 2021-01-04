@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     private Tilemap tilemap;
     private HPManager hpManager;
     private MoneyManager moneyManager;
+    private KillCounterManager killCounterManager;
     private Vector3 pathEndPosition;
 
     private Vector3 targetPosition;
@@ -78,6 +79,7 @@ public class Enemy : MonoBehaviour
         pathEndPosition = GameObject.FindWithTag("PathEnd").transform.position;
         hpManager = GameObject.Find("HPManager").GetComponent<HPManager>();
         moneyManager = GameObject.Find("MoneyManager").GetComponent<MoneyManager>();
+        killCounterManager = GameObject.Find("KillCounterManager").GetComponent<KillCounterManager>();
 
         targetPosition = transform.position;
     }
@@ -157,6 +159,7 @@ public class Enemy : MonoBehaviour
 
     public void KillEnemy()
     {
+        killCounterManager.AddOneKill();
         moneyManager.AddMoney(dropMoney);
         Destroy(gameObject);
     }

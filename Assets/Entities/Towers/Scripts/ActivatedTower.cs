@@ -12,6 +12,7 @@ public abstract class ActivatedTower : Tower
     protected float delayBeforeNextFire = 0f;
     protected int upgradeIndex;
 
+    protected float MoneyPorcentageOnSell = 0.80f;
 
     protected void InitializeActivatedTower(Sprite inSprite, float inRange, float inFireRate, float inPrice)
     {

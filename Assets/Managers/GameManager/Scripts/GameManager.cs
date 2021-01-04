@@ -109,6 +109,14 @@ public class GameManager : MonoBehaviour
         gameState = GameState.Running;
     }
 
+    public void GoToMainMenu()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(gameAreaSceneIndex);
+
+        SceneManager.LoadScene(0);
+    }
+
     public void EndGame()
     {
         if (gameState != GameState.Ended)

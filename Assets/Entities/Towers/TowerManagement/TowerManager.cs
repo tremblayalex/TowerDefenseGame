@@ -43,14 +43,15 @@ public class TowerManager : MonoBehaviour
     {
         if (towerIndex >= 0 && towerIndex < towerScriptableObjects.Length)
         {
+            selectedTilePosition.x = -1;
             towerPurchaseSelectedIndex = towerIndex;
         }
         NoTowerSelected();
     }
 
-
     public void DisableTowerPurchaseMode()
-    {       
+    {
+        selectedTilePosition.x = -1;
         towerPurchaseSelectedIndex = -1;
         DestroyPreviousShadowTower();
     }
@@ -89,6 +90,7 @@ public class TowerManager : MonoBehaviour
                 allPlacedTowers.Add(spawnerTower.SpawnTower(actualTowerPosition, towerPurchaseSelectedIndex));
                 DisableTowerPurchaseMode();
             }
+            selectedTilePosition.x = -1;
         }
         else if (towerPurchaseSelectedIndex == -1)
         {
@@ -121,15 +123,21 @@ public class TowerManager : MonoBehaviour
 
     public void UpgradeTheRightTower()
     {
-        selectedTower.GetComponent<ActivatedTower>().Upgrade();
+        if (selectedTower != null)
+        {
+            selectedTower.GetComponent<ActivatedTower>().Upgrade();
+        }
     }
 
     public void SellTheRightTowerType()
     {
-        selectedTower.GetComponent<ActivatedTower>().Sell();
-        allPlacedTowers.Remove(selectedTower);
-        Destroy(selectedTower);
-        NoTowerSelected();
+        if (selectedTower != null)
+        {
+            selectedTower.GetComponent<ActivatedTower>().Sell();
+            allPlacedTowers.Remove(selectedTower);
+            Destroy(selectedTower);
+            NoTowerSelected();
+        }
     }
 
     private void UpdateTileSelectionToBuy(Vector3Int tilePosition)

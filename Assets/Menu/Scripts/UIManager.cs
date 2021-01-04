@@ -8,6 +8,8 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI textHP;
     public TextMeshProUGUI textMoney;
 
+    public TextMeshProUGUI textKills;
+
     public TextMeshProUGUI textCostTower1;
     public TextMeshProUGUI textCostTower2;
     public TextMeshProUGUI textCostTower3;
@@ -91,6 +93,11 @@ public class UIManager : MonoBehaviour
     public void DisplayMoney(long money)
     {
         textMoney.text = money.ToString();
+    }
+
+    public void DisplayKills(long kills)
+    {
+        textKills.text = kills.ToString();
     }
 
     public void PlayInsufficientFundsAnimation()

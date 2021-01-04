@@ -12,10 +12,18 @@ public class Bullet : Projectile
     protected override void ProjectileReachedTarget()
     {
         DamageTarget();
+        Destroy(gameObject);
     }
 
     private void DamageTarget()
     {
-        targetEnemy.GetComponent<Enemy>().Damage(damage);
+        if (targetEnemy == null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            targetEnemy.GetComponent<Enemy>().Damage(damage);
+        }       
     }
 }

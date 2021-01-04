@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 984ed7c328758494982b4c70c5d90035, type: 3}
   m_Name: TankVariant0
   m_EditorClassIdentifier: 
-  enemySprite: {fileID: -408818605650295881, guid: 09402073fe28be84fb7b32b2569434e7,
+  enemySprite: {fileID: 7526281318054643600, guid: 09402073fe28be84fb7b32b2569434e7,
     type: 3}
   hitPoints: 10
-  movementSpeed: 3
-  dropMoney: 5
-  dammageEndOfPath: 1
+  movementSpeed: 2
+  dropMoney: 4
+  dammageEndOfPath: 2

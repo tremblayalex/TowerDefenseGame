@@ -34,6 +34,7 @@ public class Missile : Projectile
     protected override void ProjectileReachedTarget()
     {
         Explode();
+        Destroy(gameObject);
     }
 
     private void Explode()

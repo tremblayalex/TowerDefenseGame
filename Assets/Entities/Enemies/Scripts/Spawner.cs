@@ -7,7 +7,9 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public EnemyScriptableObject[] enemyScriptableObjects;
+    public int[] numberOfEnnemyNeededToSpawnThisEnnemi;
     public GameObject enemyPrefab;
+    public UIManager uiManager;
     public float waveDuration = 60f;
     public float delayBetweenWaves = 15f;
     public int firstWaveEnemyCount = 3;
@@ -21,6 +23,7 @@ public class Spawner : MonoBehaviour
 
     void Start()
     {
+        uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
         timeBetweenWaves = waveDuration + delayBetweenWaves;
         ennemiCount = firstWaveEnemyCount;
     }
@@ -33,6 +36,7 @@ public class Spawner : MonoBehaviour
 
             float spawnDelay = waveDuration / ennemiCount;
             IEnumerator coroutine = SpawnAWave(ennemiCount, spawnDelay);
+
             StartCoroutine(coroutine);
             ennemiCount = (int)(ennemiCount * waveEnemyIncrementMultiplier);
             delayBeforeNextSpawn = timeBetweenWaves;
@@ -41,15 +45,12 @@ public class Spawner : MonoBehaviour
         delayBeforeNextSpawn -= Time.deltaTime;
     }
 
-    IEnumerator SpawnAWave(int nombreEnnemie, float timeBetwenEnnemi)
-    {
-
-        //for (int i = 0; i < nombreEnnemie; i++)     
-
-        while (nombreEnnemie > 0)
+    IEnumerator SpawnAWave(int numberEnnemie, float timeBetwenEnnemi)
+    {  
+        while (numberEnnemie > 0)
         {
             //Debug.Log("spawnOneEnemi");
-            CustomWave(ref nombreEnnemie);
+            CustomWave(ref numberEnnemie);
 
             yield return new WaitForSeconds(timeBetwenEnnemi);
 
@@ -57,6 +58,36 @@ public class Spawner : MonoBehaviour
         waveNumber++;
     }
 
+    private void CustomWave(ref int numberEnnemi)
+    {
+        for (int i = 0; i < enemyScriptableObjects.Length-1; i++)
+        {
+            SpwanEnemyType(ref numberEnnemi, i, numberOfEnnemyNeededToSpawnThisEnnemi[i+1], numberOfEnnemyNeededToSpawnThisEnnemi[i]);
+        }
+        SpwanEnemyType(ref numberEnnemi, enemyScriptableObjects.Length-1, numberOfEnnemyNeededToSpawnThisEnnemi[enemyScriptableObjects.Length-1]);
+
+    }
+    #region SpawnEnemytype
+    void SpwanEnemyType(ref int numberEnnemiType, int ennemiType, int max, int min)
+    {
+        if (numberEnnemiType <= max && numberEnnemiType > min)
+        {
+            SpawnNewEnemy(ennemiType);
+            numberEnnemiType--;
+        }
+    }
+
+    void SpwanEnemyType(ref int numberEnnemiType, int ennemiType, int min)
+    {
+        if (numberEnnemiType > min)
+        {
+            SpawnNewEnemy(ennemiType);
+            numberEnnemiType--;
+        }
+    }
+    /*
+     * How ma partener programmed the spawn of the different ennemies.
+    
     private void CustomWave(ref int nombreEnnemi)
     {
         // Debug.Log("inCustomeWave");
@@ -73,108 +104,109 @@ public class Spawner : MonoBehaviour
         SpwanEleventhEnemyType(ref nombreEnnemi);
         SpwanTwelvethEnemyType(ref nombreEnnemi);
     }
-    #region SpawnEnemytype
-    void SpwanFirstEnemyType(ref int nombreEnnemiType)
+
+    void SpwanFirstEnemyType(ref int numberEnnemiType)
     {
-        if (nombreEnnemiType <= 10 && nombreEnnemiType > 0)
+        if (numberEnnemiType <= 10 && numberEnnemiType > 0)
         {
             SpawnNewEnemy(0);
-            nombreEnnemiType--;
+            numberEnnemiType--;
         }
 
     }
-    void SpwanSecondEnemyType(ref int nombreEnnemiType)
+    void SpwanSecondEnemyType(ref int numberEnnemiType)
     {
-        if (nombreEnnemiType <= 20 && nombreEnnemiType > 10)
+        if (numberEnnemiType <= 20 && numberEnnemiType > 10)
         {
             SpawnNewEnemy(1);
-            nombreEnnemiType--;
+            numberEnnemiType--;
         }
 
     }
-    void SpwanThirdEnemyType(ref int nombreEnnemiType)
+    void SpwanThirdEnemyType(ref int numberEnnemiType)
     {
-        if (nombreEnnemiType <= 30 && nombreEnnemiType > 20)
+        if (numberEnnemiType <= 30 && numberEnnemiType > 20)
         {
             SpawnNewEnemy(2);
-            nombreEnnemiType--;
+            numberEnnemiType--;
         }
 
 
     }
-    void SpwanFourthEnemyType(ref int nombreEnnemiType)
+    void SpwanFourthEnemyType(ref int numberEnnemiType)
     {
-        if (nombreEnnemiType <= 40 && nombreEnnemiType > 30)
+        if (numberEnnemiType <= 40 && numberEnnemiType > 30)
         {
             SpawnNewEnemy(3);
-            nombreEnnemiType--;
+            numberEnnemiType--;
         }
 
     }
-    void SpwanFifthEnemyType(ref int nombreEnnemiType)
+    void SpwanFifthEnemyType(ref int numberEnnemiType)
     {
-        if (nombreEnnemiType <= 50 && nombreEnnemiType > 40)
+        if (numberEnnemiType <= 50 && numberEnnemiType > 40)
         {
             SpawnNewEnemy(4);
-            nombreEnnemiType--;
+            numberEnnemiType--;
         }
     }
-    void SpwanSithEnemyType(ref int nombreEnnemiType)
+    void SpwanSithEnemyType(ref int numberEnnemiType)
     {
-        if (nombreEnnemiType <= 60 && nombreEnnemiType > 50)
+        if (numberEnnemiType <= 60 && numberEnnemiType > 50)
         {
             SpawnNewEnemy(5);
-            nombreEnnemiType--;
+            numberEnnemiType--;
         }
     }
-    void SpwanSeventhEnemyType(ref int nombreEnnemiType)
+    void SpwanSeventhEnemyType(ref int numberEnnemiType)
     {
-        if (nombreEnnemiType <= 70 && nombreEnnemiType > 60)
+        if (numberEnnemiType <= 70 && numberEnnemiType > 60)
         {
             SpawnNewEnemy(6);
-            nombreEnnemiType--;
+            numberEnnemiType--;
         }
     }
-    void SpwanEightEnemyType(ref int nombreEnnemiType)
+    void SpwanEightEnemyType(ref int numberEnnemiType)
     {
-        if (nombreEnnemiType <= 80 && nombreEnnemiType > 70)
+        if (numberEnnemiType <= 80 && numberEnnemiType > 70)
         {
             SpawnNewEnemy(7);
-            nombreEnnemiType--;
+            numberEnnemiType--;
         }
     }
-    void SpwanNithEnemyType(ref int nombreEnnemiType)
+    void SpwanNithEnemyType(ref int numberEnnemiType)
     {
-        if (nombreEnnemiType <= 90 && nombreEnnemiType > 80)
+        if (numberEnnemiType <= 90 && numberEnnemiType > 80)
         {
             SpawnNewEnemy(8);
-            nombreEnnemiType--;
+            numberEnnemiType--;
         }
     }
-    void SpwanTenthEnemyType(ref int nombreEnnemiType)
+    void SpwanTenthEnemyType(ref int numberEnnemiType)
     {
-        if (nombreEnnemiType <= 100 && nombreEnnemiType > 90)
+        if (numberEnnemiType <= 100 && numberEnnemiType > 90)
         {
             SpawnNewEnemy(9);
-            nombreEnnemiType--;
+            numberEnnemiType--;
         }
     }
-    void SpwanEleventhEnemyType(ref int nombreEnnemiType)
+    void SpwanEleventhEnemyType(ref int numberEnnemiType)
     {
-        if (nombreEnnemiType <= 110 && nombreEnnemiType > 100)
+        if (numberEnnemiType <= 110 && numberEnnemiType > 100)
         {
             SpawnNewEnemy(10);
-            nombreEnnemiType--;
+            numberEnnemiType--;
         }
     }
-    void SpwanTwelvethEnemyType(ref int nombreEnnemiType)
+    void SpwanTwelvethEnemyType(ref int numberEnnemiType)
     {
-        if (nombreEnnemiType > 110)
+        if (numberEnnemiType > 110)
         {
             SpawnNewEnemy(11);
-            nombreEnnemiType--;
+            numberEnnemiType--;
         }
     }
+    */
     #endregion
     private void SpawnNewEnemy(int indexEnnemi)
     {

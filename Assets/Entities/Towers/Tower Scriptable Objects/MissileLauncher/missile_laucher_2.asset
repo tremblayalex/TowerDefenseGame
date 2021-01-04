@@ -16,6 +16,6 @@ MonoBehaviour:
     type: 3}
   range: 7
   fireRate: 3
-  price: 400
-  damage: 40
-  explosionRange: 2
+  price: 600
+  damage: 65
+  explosionRange: 1.3

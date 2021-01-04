@@ -58,7 +58,7 @@ public class MachineGunTower : RotationalTower
         {
             MoneyOnSelling += towerSettings.machineGunTowerScriptableObjects[i].price;
         }
-        return MoneyOnSelling / 2;
+        return Convert.ToInt32(MoneyOnSelling * MoneyPorcentageOnSell);
     }
 
     protected override void ShootBulletTowardsTarget(GameObject target)

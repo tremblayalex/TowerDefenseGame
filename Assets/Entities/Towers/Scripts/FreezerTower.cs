@@ -1,4 +1,7 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class FreezerTower : ActivatedTower
@@ -58,7 +61,7 @@ public class FreezerTower : ActivatedTower
         {
             MoneyOnSelling += towerSettings.freezerTowerScriptableObjects[i].price;
         }
-        return MoneyOnSelling / 2;
+        return Convert.ToInt32(MoneyOnSelling * MoneyPorcentageOnSell);
     }
 
 
