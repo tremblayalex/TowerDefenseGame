@@ -16,5 +16,5 @@ MonoBehaviour:
     type: 3}
   hitPoints: 200
   movementSpeed: 2
-  dropMoney: 4
+  dropMoney: 6
   dammageEndOfPath: 5
